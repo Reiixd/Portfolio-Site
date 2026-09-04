@@ -20,12 +20,12 @@
   "sections": {
     "systems": {
       "headline": ["Complexity in.", "Clarity out."],
-      "description": "I work across the stack, finding the structure that makes hard systems easier to change.",
+      "description": "I bridge systems programming, AI, and full-stack product engineering, building everything from performant backend services to intelligent web products deployed on AWS.",
       "capabilities": [
-        { "label": "Frontend", "value": "React, TypeScript, Next.js, Design Systems, Accessibility" },
-        { "label": "Backend", "value": "Node.js, Flask, REST APIs, GraphQL, event-driven services" },
-        { "label": "Data", "value": "PostgreSQL, Redis, analytics pipelines" },
-        { "label": "Platform", "value": "AWS, Docker, Terraform, observability" }
+        { "label": "Languages", "value": "C++, C, Java, Python, JavaScript, TypeScript, SQL" },
+        { "label": "Full stack", "value": "MERN, React, Node.js, Express.js, Flask, Spring Boot, REST APIs" },
+        { "label": "AI & Data", "value": "Machine Learning, NLP, AI applications, PostgreSQL, MySQL, Redis" },
+        { "label": "Web & Cloud", "value": "HTML, CSS, Bootstrap, TypeORM, Docker, AWS, Git, CI/CD" }
       ]
     },
     "work": {
