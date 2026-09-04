@@ -110,9 +110,12 @@ export default function App() {
 
   const goTo = (index) => {
     const before = waypoints.slice(0, index).reduce((sum, item) => sum + item.weight, 0)
+    const isFinale = index === waypoints.length - 1
+    const positionInSegment = isFinale ? 0.85 : 0.5
+    const target = index === 0 ? 0 : before + waypoints[index].weight * positionInSegment
     const top = worldRef.current?.getBoundingClientRect().top + window.scrollY || 0
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    window.scrollTo({ top: top + before * window.innerHeight + 2, behavior: reduceMotion ? 'auto' : 'smooth' })
+    window.scrollTo({ top: top + target * window.innerHeight, behavior: reduceMotion ? 'auto' : 'smooth' })
   }
 
   return (
