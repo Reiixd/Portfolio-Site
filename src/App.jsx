@@ -1,19 +1,25 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import WorldCanvas from './components/WorldCanvas.jsx'
 import portfolio from './data/portfolio.json'
 
 const { profile, navigation: waypoints, sections, meta } = portfolio
 const { systems, work, experience, principles, contact } = sections
 const mailHref = 'mailto:' + profile.email
-const phoneHref = 'tel:' + profile.phone.replace(/s/g, '')
+const phoneHref = 'tel:' + profile.phone.replace(/\s/g, '')
 
-function ContactMenu({ label }) {
+function ContactMenu({ label, variant = 'chrome', enabled = true }) {
   const [open, setOpen] = useState(false)
+  const panelId = useId()
   const menuRef = useRef(null)
   const triggerRef = useRef(null)
+  const isOpen = open && enabled
 
   useEffect(() => {
-    if (!open) return undefined
+    if (!enabled) setOpen(false)
+  }, [enabled])
+
+  useEffect(() => {
+    if (!isOpen) return undefined
 
     const closeFromOutside = (event) => {
       if (!menuRef.current?.contains(event.target)) setOpen(false)
@@ -31,16 +37,17 @@ function ContactMenu({ label }) {
       document.removeEventListener('pointerdown', closeFromOutside)
       document.removeEventListener('keydown', closeWithEscape)
     }
-  }, [open])
+  }, [isOpen])
 
   return (
-    <div ref={menuRef} className="contact-menu">
+    <div ref={menuRef} className={'contact-menu contact-menu--' + variant}>
       <button
         ref={triggerRef}
         type="button"
-        className="chrome-contact"
-        aria-expanded={open}
-        aria-controls="contact-options"
+        className={variant === 'section' ? 'contact-action' : 'chrome-contact'}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        tabIndex={enabled ? 0 : -1}
         onClick={() => setOpen((current) => !current)}
       >
         {label}
@@ -48,15 +55,15 @@ function ContactMenu({ label }) {
       </button>
 
       <div
-        id="contact-options"
-        className={'contact-panel' + (open ? ' is-open' : '')}
-        aria-hidden={!open}
+        id={panelId}
+        className={'contact-panel' + (isOpen ? ' is-open' : '')}
+        aria-hidden={!isOpen}
       >
-        <a className="contact-option" href={mailHref} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+        <a className="contact-option" href={mailHref} tabIndex={isOpen ? 0 : -1} onClick={() => setOpen(false)}>
           <span>Email</span>
           <strong>{profile.email}</strong>
         </a>
-        <a className="contact-option" href={phoneHref} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+        <a className="contact-option" href={phoneHref} tabIndex={isOpen ? 0 : -1} onClick={() => setOpen(false)}>
           <span>Phone</span>
           <strong>{profile.phone}</strong>
         </a>
@@ -282,9 +289,11 @@ export default function App() {
               <p className="contact-kicker">{contact.label}</p>
               <h2 id="contact-title">{contact.headline}</h2>
               <p>{contact.description}</p>
-              <a className="contact-action" href={mailHref} tabIndex={active === waypoints.length - 1 ? 0 : -1}>
-                {contact.actionLabel} <span aria-hidden="true">↗</span>
-              </a>
+              <ContactMenu
+                label={contact.actionLabel}
+                variant="section"
+                enabled={active === waypoints.length - 1}
+              />
             </section>
           </div>
 

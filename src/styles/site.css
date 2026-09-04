@@ -130,12 +130,13 @@ button {
   transition: transform 180ms var(--ease-out-expo);
 }
 
-.chrome-contact[aria-expanded="true"] .contact-chevron {
+[aria-expanded="true"] .contact-chevron {
   transform: translateY(0.16rem) rotate(225deg);
 }
 
 .contact-panel {
   position: absolute;
+  z-index: 1;
   top: calc(100% + var(--sc-2));
   right: 0;
   width: min(21rem, calc(100vw - 2rem));
@@ -161,6 +162,24 @@ button {
   transform: translateY(0);
   pointer-events: auto;
   transition-delay: 0s;
+}
+
+.contact-menu--section {
+  width: fit-content;
+  margin-top: var(--sc-7);
+}
+
+.contact-menu--section .contact-panel {
+  top: auto;
+  right: auto;
+  bottom: calc(100% + var(--sc-3));
+  left: 50%;
+  transform: translate(-50%, 0.5rem);
+  transform-origin: bottom center;
+}
+
+.contact-menu--section .contact-panel.is-open {
+  transform: translate(-50%, 0);
 }
 
 .contact-option {
@@ -194,6 +213,7 @@ button {
 
 .wordmark:focus-visible,
 .chrome-contact:focus-visible,
+.contact-action:focus-visible,
 .contact-option:focus-visible {
   outline: 2px solid var(--sc-accent);
   outline-offset: 0.28rem;
@@ -602,11 +622,14 @@ button {
   gap: var(--sc-7);
   min-width: 12rem;
   min-height: 3.25rem;
-  margin-top: var(--sc-7);
+  margin-top: 0;
   padding: var(--sc-3) var(--sc-5);
+  border: 0;
   border-radius: var(--sc-r-pill);
   background: var(--sc-accent);
   color: var(--sc-accent-ink);
+  cursor: pointer;
+  font: inherit;
   font-weight: 600;
   text-decoration: none;
   transition: transform 140ms var(--ease-out-expo), filter 140ms var(--ease-out-expo);
