@@ -34,23 +34,26 @@
         {
           "name": "GoHosty",
           "title": "One workspace for every short-term rental operation",
-          "summary": "Built a MERN operations platform for a Canadian client, unifying OTA bookings, guest messaging, pricing, turnovers, payments, and owner reporting for STR teams worldwide.",
-          "stack": "Client project · Canada to global · MongoDB · Express.js · React · Node.js",
-          "url": "https://gohosty.com/"
+          "summary": "An all-in-one short-term rental operations platform that centralizes OTA bookings, availability, guest messaging, dynamic pricing, cleaning workflows, payments, and owner reporting in one dependable workspace.",
+          "stack": "MongoDB · Express.js · React · Node.js · REST APIs",
+          "url": "https://gohosty.com/",
+          "linkLabel": "Visit GoHosty"
         },
         {
           "name": "MoneyVote Quest",
           "title": "Financial literacy learned through real decisions",
-          "summary": "Built an interactive learning platform for a Portuguese client where young people manage budgets, respond to crises, debate policy trade-offs, and see the consequences of their choices through live results.",
-          "stack": "Client project · Portugal to global · MERN · Interactive simulation",
-          "url": "https://moneyvotequest.com/"
+          "summary": "An interactive financial literacy and civic learning platform where young people manage budgets, navigate economic crises, debate policy choices, vote as teams, and see the impact of their decisions through live results.",
+          "stack": "MERN · Interactive simulations · Live results · Data visualization",
+          "url": "https://moneyvotequest.com/",
+          "linkLabel": "Visit MoneyVote Quest"
         },
         {
           "name": "MJMarry",
           "title": "Privacy-first matchmaking for a global Muslim community",
-          "summary": "Built a React Native Android app for a Canadian client with profile discovery, faith-based filters, private messaging, and in-app voice and video calls.",
-          "stack": "Client project · Canada to global · React Native · Android · Real-time communication",
-          "url": "https://play.google.com/store/apps/details?id=com.iahtasham.mjmarry"
+          "summary": "A privacy-focused Muslim matrimonial app with profile discovery, faith-based matching filters, private chat, voice messaging, voice and video calls, multilingual access, and built-in safety controls.",
+          "stack": "React Native · Android · Real-time messaging · Voice and video",
+          "url": "https://play.google.com/store/apps/details?id=com.iahtasham.mjmarry",
+          "linkLabel": "Visit MJMarry"
         }
       ]
     },

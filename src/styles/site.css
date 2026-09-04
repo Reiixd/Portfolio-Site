@@ -379,6 +379,25 @@ button {
   line-height: 1.5;
 }
 
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sc-2);
+}
+
+.project-link {
+  color: var(--sc-accent);
+  font-size: 0.72rem;
+  font-weight: 650;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+.project-link:hover {
+  color: var(--sc-ink);
+}
+
 .world-copy--experience {
   display: grid;
   grid-template-columns: minmax(17rem, 0.78fr) minmax(22rem, 1.22fr);
@@ -661,6 +680,10 @@ button {
 
   .project-list article small {
     display: none;
+  }
+
+  .project-meta {
+    grid-column: 2;
   }
 
   .world-copy--experience {

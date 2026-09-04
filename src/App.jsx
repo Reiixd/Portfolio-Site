@@ -50,52 +50,61 @@ export default function App() {
     if (!root || !window.ScrollCraft) return undefined
     window.ScrollCraft.mount(document)
 
-    const updateWaypoint = (event) => setActive(event.detail.index)
-    root.addEventListener('sc:waypoint', updateWaypoint)
-
     const workIndex = waypoints.findIndex((item) => item.id === 'work')
     const workStart = waypoints.slice(0, workIndex).reduce((sum, item) => sum + item.weight, 0)
     const workWeight = waypoints[workIndex]?.weight || 1
     const workSection = root.querySelector('.world-copy--work')
     const workTrack = root.querySelector('.work-copy-track')
-    let workFrame = 0
+    const copySections = Array.from(root.querySelectorAll('[data-sc-copy]'))
+    let scrollFrame = 0
 
-    const updateWorkTrack = () => {
-      workFrame = 0
-      if (!workSection || !workTrack) return
+    const updateScrollState = () => {
+      scrollFrame = 0
 
-      const sectionStyle = getComputedStyle(workSection)
-      const availableHeight = window.innerHeight
-        - Number.parseFloat(sectionStyle.paddingTop)
-        - Number.parseFloat(sectionStyle.paddingBottom)
-      const travel = Math.max(workTrack.scrollHeight - availableHeight, 0)
-      const worldTop = root.getBoundingClientRect().top + window.scrollY
-      const flightPosition = (window.scrollY - worldTop) / Math.max(window.innerHeight, 1)
-      const localProgress = Math.min(Math.max((flightPosition - workStart) / workWeight, 0), 1)
-      const revealProgress = Math.min(Math.max((localProgress - 0.12) / 0.56, 0), 1)
-      const easedProgress = revealProgress * revealProgress * (3 - 2 * revealProgress)
+      if (workSection && workTrack) {
+        const sectionStyle = getComputedStyle(workSection)
+        const availableHeight = window.innerHeight
+          - Number.parseFloat(sectionStyle.paddingTop)
+          - Number.parseFloat(sectionStyle.paddingBottom)
+        const travel = Math.max(workTrack.scrollHeight - availableHeight, 0)
+        const worldTop = root.getBoundingClientRect().top + window.scrollY
+        const flightPosition = (window.scrollY - worldTop) / Math.max(window.innerHeight, 1)
+        const localProgress = Math.min(Math.max((flightPosition - workStart) / workWeight, 0), 1)
+        const revealProgress = Math.min(Math.max((localProgress - 0.12) / 0.56, 0), 1)
+        const easedProgress = revealProgress * revealProgress * (3 - 2 * revealProgress)
 
-      workTrack.style.transform = 'translate3d(0, ' + (-travel * easedProgress).toFixed(2) + 'px, 0)'
+        workTrack.style.transform = 'translate3d(0, ' + (-travel * easedProgress).toFixed(2) + 'px, 0)'
+      }
+
+      let dominantIndex = 0
+      let dominantOpacity = -1
+      copySections.forEach((section, index) => {
+        const opacity = Number.parseFloat(getComputedStyle(section).opacity) || 0
+        if (opacity > dominantOpacity) {
+          dominantIndex = index
+          dominantOpacity = opacity
+        }
+      })
+      setActive((current) => current === dominantIndex ? current : dominantIndex)
     }
 
-    const scheduleWorkTrack = () => {
-      if (!workFrame) workFrame = requestAnimationFrame(updateWorkTrack)
+    const scheduleScrollState = () => {
+      if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScrollState)
     }
 
-    window.addEventListener('scroll', scheduleWorkTrack, { passive: true })
-    window.addEventListener('resize', scheduleWorkTrack)
-    scheduleWorkTrack()
+    window.addEventListener('scroll', scheduleScrollState, { passive: true })
+    window.addEventListener('resize', scheduleScrollState)
+    scheduleScrollState()
 
     const relayout = () => window.dispatchEvent(new Event('resize'))
     window.addEventListener('load', relayout)
     document.fonts?.ready.then(relayout)
 
     return () => {
-      root.removeEventListener('sc:waypoint', updateWaypoint)
-      window.removeEventListener('scroll', scheduleWorkTrack)
-      window.removeEventListener('resize', scheduleWorkTrack)
+      window.removeEventListener('scroll', scheduleScrollState)
+      window.removeEventListener('resize', scheduleScrollState)
       window.removeEventListener('load', relayout)
-      if (workFrame) cancelAnimationFrame(workFrame)
+      if (scrollFrame) cancelAnimationFrame(scrollFrame)
     }
   }, [])
 
@@ -177,16 +186,17 @@ export default function App() {
                 <div className="project-list">
                 {work.projects.map((project) => (
                   <article key={project.name}>
-                    <p>
-                      <a href={project.url} target="_blank" rel="noreferrer">
-                        {project.name}
-                      </a>
-                    </p>
+                    <p>{project.name}</p>
                     <div>
                       <h3>{project.title}</h3>
                       <span>{project.summary}</span>
                     </div>
-                    <small>{project.stack}</small>
+                    <div className="project-meta">
+                      <small>{project.stack}</small>
+                      <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
+                        {project.linkLabel}
+                      </a>
+                    </div>
                   </article>
                 ))}
                 </div>
