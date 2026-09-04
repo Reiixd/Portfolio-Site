@@ -331,7 +331,13 @@ button {
 
 .world-copy--work {
   justify-content: flex-start;
-  padding-top: clamp(7rem, 14vh, 10rem);
+  padding-top: clamp(6.5rem, 12vh, 8rem);
+  overflow: hidden;
+}
+
+.work-copy-track {
+  width: 100%;
+  will-change: transform;
 }
 
 .project-list {
@@ -339,7 +345,7 @@ button {
   flex-direction: column;
   gap: 0;
   width: min(100%, 62rem);
-  margin-top: clamp(2rem, 5vh, 3.5rem);
+  margin-top: clamp(1.5rem, 4vh, 3rem);
 }
 
 .project-list article {

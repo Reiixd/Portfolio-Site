@@ -53,20 +53,56 @@ export default function App() {
     const updateWaypoint = (event) => setActive(event.detail.index)
     root.addEventListener('sc:waypoint', updateWaypoint)
 
+    const workIndex = waypoints.findIndex((item) => item.id === 'work')
+    const workStart = waypoints.slice(0, workIndex).reduce((sum, item) => sum + item.weight, 0)
+    const workWeight = waypoints[workIndex]?.weight || 1
+    const workSection = root.querySelector('.world-copy--work')
+    const workTrack = root.querySelector('.work-copy-track')
+    let workFrame = 0
+
+    const updateWorkTrack = () => {
+      workFrame = 0
+      if (!workSection || !workTrack) return
+
+      const sectionStyle = getComputedStyle(workSection)
+      const availableHeight = window.innerHeight
+        - Number.parseFloat(sectionStyle.paddingTop)
+        - Number.parseFloat(sectionStyle.paddingBottom)
+      const travel = Math.max(workTrack.scrollHeight - availableHeight, 0)
+      const worldTop = root.getBoundingClientRect().top + window.scrollY
+      const flightPosition = (window.scrollY - worldTop) / Math.max(window.innerHeight, 1)
+      const localProgress = Math.min(Math.max((flightPosition - workStart) / workWeight, 0), 1)
+      const revealProgress = Math.min(Math.max((localProgress - 0.12) / 0.56, 0), 1)
+      const easedProgress = revealProgress * revealProgress * (3 - 2 * revealProgress)
+
+      workTrack.style.transform = 'translate3d(0, ' + (-travel * easedProgress).toFixed(2) + 'px, 0)'
+    }
+
+    const scheduleWorkTrack = () => {
+      if (!workFrame) workFrame = requestAnimationFrame(updateWorkTrack)
+    }
+
+    window.addEventListener('scroll', scheduleWorkTrack, { passive: true })
+    window.addEventListener('resize', scheduleWorkTrack)
+    scheduleWorkTrack()
+
     const relayout = () => window.dispatchEvent(new Event('resize'))
     window.addEventListener('load', relayout)
     document.fonts?.ready.then(relayout)
 
     return () => {
       root.removeEventListener('sc:waypoint', updateWaypoint)
+      window.removeEventListener('scroll', scheduleWorkTrack)
+      window.removeEventListener('resize', scheduleWorkTrack)
       window.removeEventListener('load', relayout)
+      if (workFrame) cancelAnimationFrame(workFrame)
     }
   }, [])
 
   const goTo = (index) => {
     const before = waypoints.slice(0, index).reduce((sum, item) => sum + item.weight, 0)
     const isFinale = index === waypoints.length - 1
-    const positionInSegment = isFinale ? 0.85 : 0.5
+    const positionInSegment = isFinale ? 0.85 : waypoints[index].id === 'work' ? 0.12 : 0.5
     const target = index === 0 ? 0 : before + waypoints[index].weight * positionInSegment
     const top = worldRef.current?.getBoundingClientRect().top + window.scrollY || 0
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -116,13 +152,13 @@ export default function App() {
           <div id="world-copy" data-sc-world-copy className="copy-layer">
             <div className="copy-scrim" aria-hidden="true" />
 
-            <section className="world-copy world-copy--hero" data-sc-copy data-sc-window="0 0.16 0 0.28" aria-labelledby="hero-title">
+            <section className="world-copy world-copy--hero" data-sc-copy data-sc-window="0 0.145 0 0.28" aria-labelledby="hero-title">
               <p className="status-line"><span /> {profile.roles.join(' · ')} · {profile.location}</p>
               <h1 id="hero-title">{profile.headline[0]}<br />{profile.headline[1]}</h1>
               <p className="hero-lede">{profile.introduction}</p>
             </section>
 
-            <section className="world-copy world-copy--systems" data-sc-copy data-sc-window="0.12 0.34 0.2 0.2" aria-labelledby="systems-title">
+            <section className="world-copy world-copy--systems" data-sc-copy data-sc-window="0.115 0.295 0.18 0.18" aria-labelledby="systems-title">
               <h2 id="systems-title">{systems.headline[0]}<br /><em>{systems.headline[1]}</em></h2>
               <dl className="stack-ledger" aria-label="Technical capabilities">
                 {systems.capabilities.map((item) => (
@@ -135,9 +171,10 @@ export default function App() {
               <p>{systems.description}</p>
             </section>
 
-            <section className="world-copy world-copy--work" data-sc-copy data-sc-window="0.29 0.52 0.18 0.22" aria-labelledby="work-title">
-              <h2 id="work-title">{work.headline[0]}<br />{work.headline[1]}</h2>
-              <div className="project-list">
+            <section className="world-copy world-copy--work" data-sc-copy data-sc-window="0.265 0.55 0.12 0.08" aria-labelledby="work-title">
+              <div className="work-copy-track">
+                <h2 id="work-title">{work.headline[0]}<br />{work.headline[1]}</h2>
+                <div className="project-list">
                 {work.projects.map((project) => (
                   <article key={project.name}>
                     <p>
@@ -152,10 +189,11 @@ export default function App() {
                     <small>{project.stack}</small>
                   </article>
                 ))}
+                </div>
               </div>
             </section>
 
-            <section className="world-copy world-copy--experience" data-sc-copy data-sc-window="0.45 0.76 0.16 0.18" aria-labelledby="experience-title">
+            <section className="world-copy world-copy--experience" data-sc-copy data-sc-window="0.525 0.78 0.12 0.14" aria-labelledby="experience-title">
               <div className="experience-heading">
                 <p>{experience.label}</p>
                 <h2 id="experience-title">{experience.headline}</h2>
@@ -163,7 +201,7 @@ export default function App() {
               <ExperienceList items={experience.items} />
             </section>
 
-            <section className="world-copy world-copy--principles" data-sc-copy data-sc-window="0.73 0.89 0.2 0.18" aria-labelledby="principles-title">
+            <section className="world-copy world-copy--principles" data-sc-copy data-sc-window="0.755 0.9 0.16 0.14" aria-labelledby="principles-title">
               <h2 id="principles-title">{principles.headline[0]}<br />{principles.headline[1]}</h2>
               <p className="principles-intro">{principles.description}</p>
               <ul className="principles-list">

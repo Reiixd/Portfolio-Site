@@ -12,7 +12,7 @@
   "navigation": [
     { "id": "home", "label": "Home", "weight": 1.7 },
     { "id": "systems", "label": "Systems", "weight": 1.7 },
-    { "id": "work", "label": "Work", "weight": 1.9 },
+    { "id": "work", "label": "Work", "weight": 3.2 },
     { "id": "experience", "label": "Experience", "weight": 2.7 },
     { "id": "principles", "label": "Principles", "weight": 1.5 },
     { "id": "contact", "label": "Contact", "weight": 1.4 }
