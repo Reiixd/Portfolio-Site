@@ -62,28 +62,22 @@
       "headline": "Experience is a connected system.",
       "items": [
         {
-          "period": "2023 to now",
-          "role": "Lead Software Engineer",
-          "company": "Northstar Labs",
-          "description": "Guiding a platform team building dependable data products for climate operations."
+          "period": "2024 to now",
+          "role": "Senior Software Engineer / Developer",
+          "company": "Current Position",
+          "description": "Designing and shipping scalable web platforms, backend services, and AI-enabled features while owning system architecture, code quality, cloud deployments, performance, and technical mentoring across the delivery lifecycle."
         },
         {
-          "period": "2020 to 2023",
-          "role": "Senior Engineer",
-          "company": "Relay Health",
-          "description": "Reworked clinical workflows into accessible tools that stay calm under pressure."
+          "period": "2023 to 2024",
+          "role": "Lead Software Engineer / Developer",
+          "company": "New Avenue",
+          "description": "Led end-to-end product delivery, translating business requirements into maintainable full-stack and cloud solutions while guiding architecture, code reviews, API design, releases, and day-to-day technical direction."
         },
         {
-          "period": "2017 to 2020",
-          "role": "Software Engineer",
-          "company": "Fieldwork",
-          "description": "Built offline-first systems for teams working far beyond reliable connections."
-        },
-        {
-          "period": "2015 to 2017",
-          "role": "Junior Engineer",
-          "company": "Paper Kite Studio",
-          "description": "Learned product craft by shipping small tools directly alongside designers and customers."
+          "period": "2019 to 2023",
+          "role": "Freelance Software Engineer / Developer",
+          "company": "Independent",
+          "description": "Delivered web and mobile products across varied industries, taking work from discovery and system design through full-stack development, API integrations, database architecture, deployment, optimization, and long-term support."
         }
       ]
     },
