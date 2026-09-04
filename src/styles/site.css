@@ -96,17 +96,113 @@ button {
 .chrome-contact {
   display: inline-flex;
   align-items: center;
+  gap: var(--sc-2);
   min-height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--sc-ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  text-decoration-line: underline;
   text-decoration-color: var(--sc-accent);
   text-underline-offset: 0.42em;
   text-decoration-thickness: 1px;
-  font-size: 0.9rem;
 }
 
 .wordmark:hover,
 .chrome-contact:hover {
   color: var(--sc-accent);
+}
+
+.contact-menu {
+  position: relative;
+}
+
+.contact-chevron {
+  width: 0.42rem;
+  height: 0.42rem;
+  margin-top: -0.18rem;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 180ms var(--ease-out-expo);
+}
+
+.chrome-contact[aria-expanded="true"] .contact-chevron {
+  transform: translateY(0.16rem) rotate(225deg);
+}
+
+.contact-panel {
+  position: absolute;
+  top: calc(100% + var(--sc-2));
+  right: 0;
+  width: min(21rem, calc(100vw - 2rem));
+  padding: var(--sc-2);
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 16%, transparent);
+  border-radius: 0.75rem;
+  background: color-mix(in oklab, var(--sc-canvas) 94%, var(--sc-surface));
+  box-shadow: 0 1.1rem 2.6rem color-mix(in oklab, black 46%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5rem);
+  transform-origin: top right;
+  pointer-events: none;
+  transition:
+    opacity 160ms var(--ease-out-expo),
+    transform 220ms var(--ease-out-expo),
+    visibility 0s linear 220ms;
+}
+
+.contact-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.contact-option {
+  display: grid;
+  gap: var(--sc-1);
+  padding: var(--sc-3);
+  border-radius: 0.55rem;
+  color: var(--sc-ink);
+  text-decoration: none;
+  transition: background-color 140ms var(--ease-out-expo);
+}
+
+.contact-option + .contact-option {
+  border-top: 1px solid color-mix(in oklab, var(--sc-ink) 12%, transparent);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.contact-option span {
+  color: var(--sc-ink-soft);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contact-option strong {
+  font-size: 0.86rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.wordmark:focus-visible,
+.chrome-contact:focus-visible,
+.contact-option:focus-visible {
+  outline: 2px solid var(--sc-accent);
+  outline-offset: 0.28rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-option:hover {
+    background: color-mix(in oklab, var(--sc-ink) 7%, transparent);
+  }
 }
 
 .portfolio-world {
@@ -774,7 +870,10 @@ button {
 
   .journey-trace span,
   .route-stop,
-  .contact-action {
+  .contact-action,
+  .contact-chevron,
+  .contact-panel,
+  .contact-option {
     transition: none;
   }
 }

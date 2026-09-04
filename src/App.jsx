@@ -5,6 +5,65 @@ import portfolio from './data/portfolio.json'
 const { profile, navigation: waypoints, sections, meta } = portfolio
 const { systems, work, experience, principles, contact } = sections
 const mailHref = 'mailto:' + profile.email
+const phoneHref = 'tel:' + profile.phone.replace(/s/g, '')
+
+function ContactMenu({ label }) {
+  const [open, setOpen] = useState(false)
+  const menuRef = useRef(null)
+  const triggerRef = useRef(null)
+
+  useEffect(() => {
+    if (!open) return undefined
+
+    const closeFromOutside = (event) => {
+      if (!menuRef.current?.contains(event.target)) setOpen(false)
+    }
+    const closeWithEscape = (event) => {
+      if (event.key !== 'Escape') return
+      setOpen(false)
+      triggerRef.current?.focus()
+    }
+
+    document.addEventListener('pointerdown', closeFromOutside)
+    document.addEventListener('keydown', closeWithEscape)
+
+    return () => {
+      document.removeEventListener('pointerdown', closeFromOutside)
+      document.removeEventListener('keydown', closeWithEscape)
+    }
+  }, [open])
+
+  return (
+    <div ref={menuRef} className="contact-menu">
+      <button
+        ref={triggerRef}
+        type="button"
+        className="chrome-contact"
+        aria-expanded={open}
+        aria-controls="contact-options"
+        onClick={() => setOpen((current) => !current)}
+      >
+        {label}
+        <span className="contact-chevron" aria-hidden="true" />
+      </button>
+
+      <div
+        id="contact-options"
+        className={'contact-panel' + (open ? ' is-open' : '')}
+        aria-hidden={!open}
+      >
+        <a className="contact-option" href={mailHref} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+          <span>Email</span>
+          <strong>{profile.email}</strong>
+        </a>
+        <a className="contact-option" href={phoneHref} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+          <span>Phone</span>
+          <strong>{profile.phone}</strong>
+        </a>
+      </div>
+    </div>
+  )
+}
 
 function RouteMap({ active, onSelect }) {
   return (
@@ -125,7 +184,7 @@ export default function App() {
         <button type="button" className="wordmark" onClick={() => goTo(0)} aria-label="Return to the beginning">
           {profile.initials}<span>///</span>
         </button>
-        <a className="chrome-contact" href={mailHref}>{contact.actionLabel}</a>
+        <ContactMenu label={contact.actionLabel} />
       </header>
 
       <main>
