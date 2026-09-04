@@ -23,7 +23,7 @@
       "description": "I bridge systems programming, AI, and full-stack product engineering, building everything from performant backend services to intelligent web products deployed on AWS.",
       "capabilities": [
         { "label": "Languages", "value": "C++, C, Java, Python, JavaScript, TypeScript, SQL" },
-        { "label": "Full stack", "value": "MERN, React, Node.js, Express.js, Flask, Spring Boot, REST APIs" },
+        { "label": "Full stack", "value": "MERN, React, React Native, Node.js, Express.js, Flask, Spring Boot, REST APIs" },
         { "label": "AI & Data", "value": "Machine Learning, NLP, AI applications, PostgreSQL, MySQL, Redis" },
         { "label": "Web & Cloud", "value": "HTML, CSS, Bootstrap, TypeORM, Docker, AWS, Git, CI/CD" }
       ]
@@ -33,21 +33,24 @@
       "projects": [
         {
           "name": "GoHosty",
-          "title": "Short Term Rentals Management, made easy",
-          "summary": "A shared operational picture that turns sensor feeds and field reports into clear decisions.",
-          "stack": "React · Go · PostgreSQL · Mapbox"
+          "title": "One workspace for every short-term rental operation",
+          "summary": "Built a MERN operations platform for a Canadian client, unifying OTA bookings, guest messaging, pricing, turnovers, payments, and owner reporting for STR teams worldwide.",
+          "stack": "Client project · Canada to global · MongoDB · Express.js · React · Node.js",
+          "url": "https://gohosty.com/"
         },
         {
-          "name": "Relay",
-          "title": "Clinical workflows without the friction",
-          "summary": "An accessible care-coordination workspace designed around fast handoffs and accountable decisions.",
-          "stack": "Next.js · Node.js · GraphQL · FHIR"
+          "name": "MoneyVote Quest",
+          "title": "Financial literacy learned through real decisions",
+          "summary": "Built an interactive learning platform for a Portuguese client where young people manage budgets, respond to crises, debate policy trade-offs, and see the consequences of their choices through live results.",
+          "stack": "Client project · Portugal to global · MERN · Interactive simulation",
+          "url": "https://moneyvotequest.com/"
         },
         {
-          "name": "Beacon",
-          "title": "Infrastructure teams can explain",
-          "summary": "A deployment control plane that makes risk, ownership, and recovery paths visible before release.",
-          "stack": "TypeScript · Kubernetes · OpenTelemetry"
+          "name": "MJMarry",
+          "title": "Privacy-first matchmaking for a global Muslim community",
+          "summary": "Built a React Native Android app for a Canadian client with profile discovery, faith-based filters, private messaging, and in-app voice and video calls.",
+          "stack": "Client project · Canada to global · React Native · Android · Real-time communication",
+          "url": "https://play.google.com/store/apps/details?id=com.iahtasham.mjmarry"
         }
       ]
     },

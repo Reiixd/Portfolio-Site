@@ -140,7 +140,11 @@ export default function App() {
               <div className="project-list">
                 {work.projects.map((project) => (
                   <article key={project.name}>
-                    <p>{project.name}</p>
+                    <p>
+                      <a href={project.url} target="_blank" rel="noreferrer">
+                        {project.name}
+                      </a>
+                    </p>
                     <div>
                       <h3>{project.title}</h3>
                       <span>{project.summary}</span>
