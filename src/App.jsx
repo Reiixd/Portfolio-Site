@@ -1,42 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import WorldCanvas from './components/WorldCanvas.jsx'
+import portfolio from './data/portfolio.json'
 
-const waypoints = [
-  { id: 'home', label: 'Home', weight: 1.7 },
-  { id: 'systems', label: 'Systems', weight: 1.7 },
-  { id: 'work', label: 'Work', weight: 1.9 },
-  { id: 'experience', label: 'Experience', weight: 2.7 },
-  { id: 'principles', label: 'Principles', weight: 1.5 },
-  { id: 'contact', label: 'Contact', weight: 1.4 },
-]
-
-const capabilities = [
-  { label: 'Frontend', value: 'React, TypeScript, Next.js, design systems, accessibility' },
-  { label: 'Backend', value: 'Node.js, Go, REST, GraphQL, event-driven services' },
-  { label: 'Data', value: 'PostgreSQL, Redis, Kafka, analytics pipelines' },
-  { label: 'Platform', value: 'AWS, Docker, Kubernetes, Terraform, observability' },
-]
-
-const projects = [
-  {
-    name: 'Atlas',
-    title: 'Climate operations, made legible',
-    summary: 'A shared operational picture that turns sensor feeds and field reports into clear decisions.',
-    stack: 'React · Go · PostgreSQL · Mapbox',
-  },
-  {
-    name: 'Relay',
-    title: 'Clinical workflows without the friction',
-    summary: 'An accessible care-coordination workspace designed around fast handoffs and accountable decisions.',
-    stack: 'Next.js · Node.js · GraphQL · FHIR',
-  },
-  {
-    name: 'Beacon',
-    title: 'Infrastructure teams can explain',
-    summary: 'A deployment control plane that makes risk, ownership, and recovery paths visible before release.',
-    stack: 'TypeScript · Kubernetes · OpenTelemetry',
-  },
-]
+const { profile, navigation: waypoints, sections, meta } = portfolio
+const { systems, work, experience, principles, contact } = sections
+const mailHref = 'mailto:' + profile.email
 
 function RouteMap({ active, onSelect }) {
   return (
@@ -58,29 +26,16 @@ function RouteMap({ active, onSelect }) {
   )
 }
 
-function ExperienceList() {
+function ExperienceList({ items }) {
   return (
     <ol className="experience-list">
-      <li>
-        <span>2023 to now</span>
-        <strong>Lead Software Engineer · Northstar Labs</strong>
-        <p>Guiding a platform team building dependable data products for climate operations.</p>
-      </li>
-      <li>
-        <span>2020 to 2023</span>
-        <strong>Senior Engineer · Relay Health</strong>
-        <p>Reworked clinical workflows into accessible tools that stay calm under pressure.</p>
-      </li>
-      <li>
-        <span>2017 to 2020</span>
-        <strong>Software Engineer · Fieldwork</strong>
-        <p>Built offline-first systems for teams working far beyond reliable connections.</p>
-      </li>
-      <li>
-        <span>2015 to 2017</span>
-        <strong>Junior Engineer · Paper Kite Studio</strong>
-        <p>Learned product craft by shipping small tools directly alongside designers and customers.</p>
-      </li>
+      {items.map((item) => (
+        <li key={item.period + '-' + item.company}>
+          <span>{item.period}</span>
+          <strong>{item.role} · {item.company}</strong>
+          <p>{item.description}</p>
+        </li>
+      ))}
     </ol>
   )
 }
@@ -123,9 +78,9 @@ export default function App() {
       <a className="skip-link" href="#world-copy">Skip to portfolio content</a>
       <header className="site-chrome">
         <button type="button" className="wordmark" onClick={() => goTo(0)} aria-label="Return to the beginning">
-          AR<span>///</span>
+          {profile.initials}<span>///</span>
         </button>
-        <a className="chrome-contact" href="mailto:alex.ren@example.com">Contact me</a>
+        <a className="chrome-contact" href={mailHref}>{contact.actionLabel}</a>
       </header>
 
       <main>
@@ -135,7 +90,7 @@ export default function App() {
 
             <figure className="hero-figure" aria-hidden="true">
               <img
-                src="/assets/alex-ren-hero.png"
+                src={profile.heroImage}
                 alt=""
                 width="1493"
                 height="1054"
@@ -162,28 +117,28 @@ export default function App() {
             <div className="copy-scrim" aria-hidden="true" />
 
             <section className="world-copy world-copy--hero" data-sc-copy data-sc-window="0 0.16 0 0.28" aria-labelledby="hero-title">
-              <p className="status-line"><span /> Software engineer · Systems thinker · Vancouver</p>
-              <h1 id="hero-title">I build systems<br />that remember.</h1>
-              <p className="hero-lede">Alex Ren turns complex infrastructure into products people trust.</p>
+              <p className="status-line"><span /> {profile.roles.join(' · ')} · {profile.location}</p>
+              <h1 id="hero-title">{profile.headline[0]}<br />{profile.headline[1]}</h1>
+              <p className="hero-lede">{profile.introduction}</p>
             </section>
 
             <section className="world-copy world-copy--systems" data-sc-copy data-sc-window="0.12 0.34 0.2 0.2" aria-labelledby="systems-title">
-              <h2 id="systems-title">Complexity in.<br /><em>Clarity out.</em></h2>
+              <h2 id="systems-title">{systems.headline[0]}<br /><em>{systems.headline[1]}</em></h2>
               <dl className="stack-ledger" aria-label="Technical capabilities">
-                {capabilities.map((item) => (
+                {systems.capabilities.map((item) => (
                   <div key={item.label}>
                     <dt>{item.label}</dt>
                     <dd>{item.value}</dd>
                   </div>
                 ))}
               </dl>
-              <p>I work across the stack, finding the structure that makes hard systems easier to change.</p>
+              <p>{systems.description}</p>
             </section>
 
             <section className="world-copy world-copy--work" data-sc-copy data-sc-window="0.29 0.52 0.18 0.22" aria-labelledby="work-title">
-              <h2 id="work-title">Selected work,<br />built to hold up.</h2>
+              <h2 id="work-title">{work.headline[0]}<br />{work.headline[1]}</h2>
               <div className="project-list">
-                {projects.map((project) => (
+                {work.projects.map((project) => (
                   <article key={project.name}>
                     <p>{project.name}</p>
                     <div>
@@ -198,28 +153,26 @@ export default function App() {
 
             <section className="world-copy world-copy--experience" data-sc-copy data-sc-window="0.45 0.76 0.16 0.18" aria-labelledby="experience-title">
               <div className="experience-heading">
-                <p>The route so far</p>
-                <h2 id="experience-title">Experience is a connected system.</h2>
+                <p>{experience.label}</p>
+                <h2 id="experience-title">{experience.headline}</h2>
               </div>
-              <ExperienceList />
+              <ExperienceList items={experience.items} />
             </section>
 
             <section className="world-copy world-copy--principles" data-sc-copy data-sc-window="0.73 0.89 0.2 0.18" aria-labelledby="principles-title">
-              <h2 id="principles-title">Leave the system<br />better than you found it.</h2>
-              <p className="principles-intro">I care about boring reliability, legible code, and products that respect the person using them.</p>
+              <h2 id="principles-title">{principles.headline[0]}<br />{principles.headline[1]}</h2>
+              <p className="principles-intro">{principles.description}</p>
               <ul className="principles-list">
-                <li>Make failure visible.</li>
-                <li>Design for the next engineer.</li>
-                <li>Keep the user close to the decision.</li>
+                {principles.items.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </section>
 
             <section className="world-copy world-copy--contact" data-sc-copy data-sc-window="finale" aria-labelledby="contact-title">
-              <p className="contact-kicker">One route left open.</p>
-              <h2 id="contact-title">Let’s build something that lasts.</h2>
-              <p>Have a difficult system or an ambitious product? I’d like to hear about it.</p>
-              <a className="contact-action" href="mailto:alex.ren@example.com" tabIndex={active === 5 ? 0 : -1}>
-                Contact me <span aria-hidden="true">↗</span>
+              <p className="contact-kicker">{contact.label}</p>
+              <h2 id="contact-title">{contact.headline}</h2>
+              <p>{contact.description}</p>
+              <a className="contact-action" href={mailHref} tabIndex={active === waypoints.length - 1 ? 0 : -1}>
+                {contact.actionLabel} <span aria-hidden="true">↗</span>
               </a>
             </section>
           </div>
@@ -234,7 +187,7 @@ export default function App() {
         </div>
       </main>
 
-      <div className="fiction-note">Concept portfolio · Fictional profile</div>
+      <div className="fiction-note">{meta.conceptNote}</div>
     </>
   )
 }

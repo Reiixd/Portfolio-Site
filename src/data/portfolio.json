@@ -1,0 +1,103 @@
+{
+  "profile": {
+    "name": "Muhammad Reebal Raza",
+    "initials": "MR",
+    "roles": ["Software engineer ", " Systems thinker "],
+    "location": " Islamabad, Pakistan",
+    "email": "m.reebal.r@gmail.com",
+    "heroImage": "/assets/alex-ren-hero.png",
+    "headline": ["I build systems", "that remember."],
+    "introduction": "M. Reebal turns complex infrastructure into products people trust."
+  },
+  "navigation": [
+    { "id": "home", "label": "Home", "weight": 1.7 },
+    { "id": "systems", "label": "Systems", "weight": 1.7 },
+    { "id": "work", "label": "Work", "weight": 1.9 },
+    { "id": "experience", "label": "Experience", "weight": 2.7 },
+    { "id": "principles", "label": "Principles", "weight": 1.5 },
+    { "id": "contact", "label": "Contact", "weight": 1.4 }
+  ],
+  "sections": {
+    "systems": {
+      "headline": ["Complexity in.", "Clarity out."],
+      "description": "I work across the stack, finding the structure that makes hard systems easier to change.",
+      "capabilities": [
+        { "label": "Frontend", "value": "React, TypeScript, Next.js, Design Systems, Accessibility" },
+        { "label": "Backend", "value": "Node.js, Flask, REST APIs, GraphQL, event-driven services" },
+        { "label": "Data", "value": "PostgreSQL, Redis, analytics pipelines" },
+        { "label": "Platform", "value": "AWS, Docker, Terraform, observability" }
+      ]
+    },
+    "work": {
+      "headline": ["Selected work,", "built to hold up."],
+      "projects": [
+        {
+          "name": "GoHosty",
+          "title": "Short Term Rentals Management, made easy",
+          "summary": "A shared operational picture that turns sensor feeds and field reports into clear decisions.",
+          "stack": "React · Go · PostgreSQL · Mapbox"
+        },
+        {
+          "name": "Relay",
+          "title": "Clinical workflows without the friction",
+          "summary": "An accessible care-coordination workspace designed around fast handoffs and accountable decisions.",
+          "stack": "Next.js · Node.js · GraphQL · FHIR"
+        },
+        {
+          "name": "Beacon",
+          "title": "Infrastructure teams can explain",
+          "summary": "A deployment control plane that makes risk, ownership, and recovery paths visible before release.",
+          "stack": "TypeScript · Kubernetes · OpenTelemetry"
+        }
+      ]
+    },
+    "experience": {
+      "label": "The route so far",
+      "headline": "Experience is a connected system.",
+      "items": [
+        {
+          "period": "2023 to now",
+          "role": "Lead Software Engineer",
+          "company": "Northstar Labs",
+          "description": "Guiding a platform team building dependable data products for climate operations."
+        },
+        {
+          "period": "2020 to 2023",
+          "role": "Senior Engineer",
+          "company": "Relay Health",
+          "description": "Reworked clinical workflows into accessible tools that stay calm under pressure."
+        },
+        {
+          "period": "2017 to 2020",
+          "role": "Software Engineer",
+          "company": "Fieldwork",
+          "description": "Built offline-first systems for teams working far beyond reliable connections."
+        },
+        {
+          "period": "2015 to 2017",
+          "role": "Junior Engineer",
+          "company": "Paper Kite Studio",
+          "description": "Learned product craft by shipping small tools directly alongside designers and customers."
+        }
+      ]
+    },
+    "principles": {
+      "headline": ["Leave the system", "better than you found it."],
+      "description": "I care about boring reliability, legible code, and products that respect the person using them.",
+      "items": [
+        "Make failure visible.",
+        "Design for the next engineer.",
+        "Keep the user close to the decision."
+      ]
+    },
+    "contact": {
+      "label": "One route left open.",
+      "headline": "Let’s build something that lasts.",
+      "description": "Have a difficult system or an ambitious product? I’d like to hear about it.",
+      "actionLabel": "Contact me"
+    }
+  },
+  "meta": {
+    "conceptNote": "Concept portfolio · Fictional profile"
+  }
+}
