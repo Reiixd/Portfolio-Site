@@ -197,9 +197,21 @@ button {
 .copy-scrim {
   position: absolute;
   z-index: 0;
-  inset: 0 auto 0 0;
-  width: min(62rem, 72vw);
-  background: linear-gradient(90deg, color-mix(in oklab, var(--sc-canvas) 96%, transparent) 0%, color-mix(in oklab, var(--sc-canvas) 78%, transparent) 55%, transparent 100%);
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 74% 62% at 50% 46%,
+      transparent 24%,
+      color-mix(in oklab, var(--sc-canvas) 34%, transparent) 100%
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--sc-canvas) 91%, transparent) 0%,
+      color-mix(in oklab, var(--sc-canvas) 58%, transparent) 31%,
+      color-mix(in oklab, var(--sc-canvas) 34%, transparent) 50%,
+      color-mix(in oklab, var(--sc-canvas) 58%, transparent) 69%,
+      color-mix(in oklab, var(--sc-canvas) 91%, transparent) 100%
+    );
   pointer-events: none;
 }
 
@@ -590,8 +602,18 @@ button {
   }
 
   .copy-scrim {
-    width: 100%;
-    background: linear-gradient(to bottom, color-mix(in oklab, var(--sc-canvas) 84%, transparent), transparent 72%);
+    background:
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--sc-canvas) 92%, transparent) 0%,
+        color-mix(in oklab, var(--sc-canvas) 66%, transparent) 48%,
+        color-mix(in oklab, var(--sc-canvas) 84%, transparent) 100%
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--sc-canvas) 72%, transparent) 0%,
+        color-mix(in oklab, var(--sc-canvas) 30%, transparent) 100%
+      );
   }
 
   .world-copy {
