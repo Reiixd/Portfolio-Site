@@ -125,74 +125,93 @@ function ExperienceList({ items }) {
 
 function MinimalPortfolio() {
   return (
-    <div id="minimal-content" className="minimal-portfolio">
-      <section className="minimal-hero" aria-labelledby="minimal-hero-title">
-        <p className="minimal-meta">{profile.roles.join(' · ')} · {profile.location}</p>
-        <h1 id="minimal-hero-title">{profile.headline[0]}<br />{profile.headline[1]}</h1>
-        <p>{profile.introduction}</p>
-      </section>
-
-      <section className="minimal-section minimal-systems" aria-labelledby="minimal-systems-title">
-        <div className="minimal-section-heading">
-          <h2 id="minimal-systems-title">{systems.headline[0]} {systems.headline[1]}</h2>
-          <p>{systems.description}</p>
+    <article id="minimal-content" className="minimal-portfolio">
+      <header className="cv-header">
+        <div className="cv-identity">
+          <h1>{profile.name}</h1>
+          <p className="cv-role">{profile.roles.map((role) => role.trim()).join(' · ')}</p>
+          <p className="cv-summary">
+            <strong>{profile.headline.join(' ')}</strong> {profile.introduction}
+          </p>
         </div>
-        <dl className="minimal-capabilities">
-          {systems.capabilities.map((item) => (
-            <div key={item.label}>
-              <dt>{item.label}</dt>
-              <dd>{item.value}</dd>
+        <address className="cv-contact-details">
+          <span>{profile.location.trim()}</span>
+          <a href={mailHref}>{profile.email}</a>
+          <a href={phoneHref}>{profile.phone}</a>
+        </address>
+      </header>
+
+      <div className="cv-layout">
+        <aside className="cv-sidebar" aria-label="Skills and principles">
+          <section aria-labelledby="cv-skills-title">
+            <h2 id="cv-skills-title">Technical skills</h2>
+            <dl className="cv-skills">
+              {systems.capabilities.map((item) => (
+                <div key={item.label}>
+                  <dt>{item.label}</dt>
+                  <dd>{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
+          <section aria-labelledby="cv-principles-title">
+            <h2 id="cv-principles-title">Engineering principles</h2>
+            <p>{principles.description}</p>
+            <ul className="cv-principles">
+              {principles.items.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </section>
+        </aside>
+
+        <div className="cv-main">
+          <section aria-labelledby="cv-experience-title">
+            <h2 id="cv-experience-title">Professional experience</h2>
+            <ol className="cv-timeline">
+              {experience.items.map((item) => (
+                <li key={item.period + '-' + item.company}>
+                  <div className="cv-entry-heading">
+                    <div>
+                      <h3>{item.role}</h3>
+                      <p>{item.company}</p>
+                    </div>
+                    <span>{item.period}</span>
+                  </div>
+                  <p>{item.description}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section aria-labelledby="cv-projects-title">
+            <h2 id="cv-projects-title">Selected projects</h2>
+            <div className="cv-projects">
+              {work.projects.map((project) => (
+                <article key={project.name}>
+                  <div className="cv-entry-heading">
+                    <div>
+                      <h3>{project.name}</h3>
+                      <p>{project.title}</p>
+                    </div>
+                    <a href={project.url} target="_blank" rel="noreferrer">{project.linkLabel}</a>
+                  </div>
+                  <p>{project.summary}</p>
+                  <small>{project.stack}</small>
+                </article>
+              ))}
             </div>
-          ))}
-        </dl>
-      </section>
-
-      <section className="minimal-section" aria-labelledby="minimal-work-title">
-        <div className="minimal-section-heading">
-          <h2 id="minimal-work-title">{work.headline.join(' ')}</h2>
+          </section>
         </div>
-        <div className="minimal-projects">
-          {work.projects.map((project) => (
-            <article key={project.name}>
-              <div className="minimal-project-heading">
-                <p>{project.name}</p>
-                <a href={project.url} target="_blank" rel="noreferrer">{project.linkLabel}</a>
-              </div>
-              <h3>{project.title}</h3>
-              <p>{project.summary}</p>
-              <small>{project.stack}</small>
-            </article>
-          ))}
-        </div>
-      </section>
+      </div>
 
-      <section className="minimal-section minimal-experience" aria-labelledby="minimal-experience-title">
-        <div className="minimal-section-heading">
-          <h2 id="minimal-experience-title">{experience.headline}</h2>
-        </div>
-        <ExperienceList items={experience.items} />
-      </section>
-
-      <section className="minimal-section minimal-principles" aria-labelledby="minimal-principles-title">
-        <div className="minimal-section-heading">
-          <h2 id="minimal-principles-title">{principles.headline.join(' ')}</h2>
-          <p>{principles.description}</p>
-        </div>
-        <ul>
-          {principles.items.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-      </section>
-
-      <section className="minimal-section minimal-contact" aria-labelledby="minimal-contact-title">
-        <div className="minimal-section-heading">
-          <h2 id="minimal-contact-title">{contact.headline}</h2>
+      <footer className="cv-footer">
+        <div>
+          <h2>{contact.headline}</h2>
           <p>{contact.description}</p>
         </div>
         <ContactMenu label={contact.actionLabel} variant="section" />
-      </section>
-
-      <footer className="minimal-footer">{meta.conceptNote}</footer>
-    </div>
+      </footer>
+    </article>
   )
 }
 
