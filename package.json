@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "cv": "node scripts/generate-cv.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {

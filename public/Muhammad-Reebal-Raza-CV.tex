@@ -1,0 +1,50 @@
+% ATS-friendly single-column CV generated from src/data/portfolio.json
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=12mm]{geometry}
+\usepackage{helvet}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{titlesec}
+\renewcommand{\familydefault}{\sfdefault}
+\linespread{0.98}
+\IfFileExists{glyphtounicode.tex}{\input{glyphtounicode}\pdfgentounicode=1}{}
+\hypersetup{pdfauthor={Muhammad Reebal Raza},pdftitle={Muhammad Reebal Raza -- Curriculum Vitae}}
+\pagestyle{empty}
+\flushbottom
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=5mm,nosep}
+\titleformat{\section}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.8mm}{0.3mm}
+\newcommand{\atssection}[1]{\section*{#1}\vspace{0.5mm}\hrule\vspace{1mm}}
+\newcommand{\cvskill}[2]{\textbf{#1:} #2\par\vspace{0.6mm plus 0.22fill}}
+\newcommand{\cveducation}[4]{\textbf{#2}\hfill #1\par #3\if\relax\detokenize{#4}\relax\else\space -- #4\fi\par\vspace{0.6mm plus 0.18fill}}
+\newcommand{\cventry}[4]{\textbf{#2}\hfill #1\par\textit{#3}\par #4\par\vspace{1mm plus 0.32fill}}
+\newcommand{\cvproject}[5]{\textbf{#1}\hfill\href{#5}{Project Link}\par\textit{#2}\par #3\par\textbf{Technologies:} #4\par\vspace{1mm plus 0.32fill}}
+\begin{document}
+\fontsize{10}{11.5}\selectfont
+{\LARGE\bfseries Muhammad Reebal Raza}\par\vspace{0.8mm}
+Islamabad, Pakistan \textbar{} \href{mailto:m.reebal.r@gmail.com}{m.reebal.r@gmail.com} \textbar{} \href{tel:+923205722557}{+923205722557}\par
+\textbf{Target Role:} Software engineer \textperiodcentered{} Developer
+\atssection{Professional Summary}
+Software engineer with 6+ years of experience delivering scalable web, mobile, cloud, and AI-enabled products. Combines systems programming and full-stack expertise across architecture, backend services, modern interfaces, data-intensive applications, AWS deployment, and performance optimization. Proven technical leadership with a focus on maintainable code, operational reliability, and long-term product value.
+\atssection{Technical Skills}
+\cvskill{Languages}{C++, C, Java, Python, JavaScript, TypeScript, SQL}
+\cvskill{Full stack}{MERN, React, React Native, Node.js, Express.js, Flask, Spring Boot, REST APIs}
+\cvskill{AI \& Data}{Machine Learning, NLP, AI applications, PostgreSQL, MySQL, Redis}
+\cvskill{Web \& Cloud}{HTML, CSS, Bootstrap, TypeORM, Docker, AWS, Git, CI/CD}
+\atssection{Professional Experience}
+\cventry{2024 to now}{Senior Software Engineer / Developer}{Current Position}{Designing and shipping scalable web platforms, backend services, and AI-enabled features while owning system architecture, code quality, cloud deployments, performance, and technical mentoring across the delivery lifecycle.}
+\cventry{2023 to 2024}{Lead Software Engineer / Developer}{New Avenue}{Led end-to-end product delivery, translating business requirements into maintainable full-stack and cloud solutions while guiding architecture, code reviews, API design, releases, and day-to-day technical direction.}
+\cventry{2019 to 2023}{Freelance Software Engineer / Developer}{Independent}{Delivered web and mobile products across varied industries, taking work from discovery and system design through full-stack development, API integrations, database architecture, deployment, optimization, and long-term support.}
+\atssection{Selected Projects}
+\cvproject{GoHosty}{One workspace for every short-term rental operation}{An all-in-one short-term rental operations platform that centralizes OTA bookings, availability, guest messaging, dynamic pricing, cleaning workflows, payments, and owner reporting in one dependable workspace.}{MongoDB \textperiodcentered{} Express.js \textperiodcentered{} React \textperiodcentered{} Node.js \textperiodcentered{} REST APIs}{https://gohosty.com/}
+\cvproject{MoneyVote Quest}{Financial literacy learned through real decisions}{An interactive financial literacy and civic learning platform where young people manage budgets, navigate economic crises, debate policy choices, vote as teams, and see the impact of their decisions through live results.}{MERN \textperiodcentered{} Interactive simulations \textperiodcentered{} Live results \textperiodcentered{} Data visualization}{https://moneyvotequest.com/}
+\cvproject{MJMarry}{Privacy-first matchmaking for a global Muslim community}{A privacy-focused Muslim matrimonial app with profile discovery, faith-based matching filters, private chat, voice messaging, voice and video calls, multilingual access, and built-in safety controls.}{React Native \textperiodcentered{} Android \textperiodcentered{} Real-time messaging \textperiodcentered{} Voice and video}{https://play.google.com/store/apps/details?id=com.iahtasham.mjmarry}
+\atssection{Education}
+\cveducation{2019 to 2023}{BS Software Engineering}{Capital University of Science and Technology}{CGPA 3.89 / 4.00 \textperiodcentered{} Silver Medalist}
+\end{document}

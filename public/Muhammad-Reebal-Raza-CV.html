@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Reebal Raza — CV</title>
+    <style>
+      :root {
+        --ink: #11191b;
+        --muted: #4f5f63;
+        --line: #cbd5d7;
+        --accent: #11191b;
+        --paper: #ffffff;
+      }
+
+      * { box-sizing: border-box; }
+
+      @page {
+        size: A4;
+        margin: 11mm 12mm 12mm;
+      }
+
+      html {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10.3pt;
+      }
+
+      body {
+        width: 186mm;
+        min-height: 273mm;
+        margin: 10mm auto;
+        padding: 13mm 14mm;
+        background: var(--paper);
+        box-shadow: none;
+      }
+
+      h1, h2, h3, p, dl, dd, ul { margin-top: 0; }
+      a { color: inherit; text-underline-offset: 2px; }
+
+      .masthead {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12mm;
+        align-items: end;
+        padding-bottom: 7mm;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      h1 {
+        max-width: 11ch;
+        margin-bottom: 2mm;
+        font-size: 31pt;
+        line-height: 0.94;
+        letter-spacing: -0.035em;
+        text-transform: uppercase;
+      }
+
+      .role {
+        margin-bottom: 0;
+        color: var(--accent);
+        font-size: 10pt;
+        font-weight: 700;
+      }
+
+      address {
+        display: grid;
+        gap: 1.3mm;
+        color: var(--muted);
+        font-size: 8.5pt;
+        font-style: normal;
+        text-align: right;
+      }
+
+      .summary {
+        width: 100%;
+        max-width: none;
+        margin: 6mm 0 0;
+        color: var(--muted);
+        font-size: 10.5pt;
+        line-height: 1.55;
+      }
+
+      .summary strong { color: var(--ink); }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 60mm minmax(0, 1fr);
+        gap: 8mm;
+        margin-top: 8mm;
+      }
+
+      .sidebar {
+        padding-right: 7mm;
+        border-right: 1px solid var(--line);
+      }
+
+      section + section { margin-top: 5mm; }
+
+      h2 {
+        margin-bottom: 2mm;
+        color: var(--accent);
+        font-size: 8.2pt;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .skill-group {
+        padding: 3.3mm 0;
+        border-top: 1px solid var(--line);
+        break-inside: avoid;
+      }
+
+      dt, h3 {
+        margin-bottom: 1.2mm;
+        font-size: 9.5pt;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      dd, .sidebar p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 8pt;
+        line-height: 1.55;
+      }
+
+      .education-list {
+        border-top: 1px solid var(--line);
+      }
+
+      .education-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid var(--line);
+        break-inside: avoid;
+      }
+
+      .education-item > div {
+        display: flex;
+        justify-content: space-between;
+        gap: 2mm;
+        align-items: baseline;
+      }
+
+      .education-item h3 {
+        margin-bottom: 0;
+        font-size: 8.3pt;
+      }
+
+      .education-item time {
+        flex: 0 0 auto;
+        color: var(--accent);
+        font-size: 7pt;
+        font-weight: 700;
+      }
+
+      .education-item p,
+      .education-item strong {
+        display: block;
+        margin: 1.2mm 0 0;
+        color: var(--muted);
+        font-size: 7.3pt;
+        line-height: 1.45;
+      }
+
+      .education-item strong {
+        color: var(--ink);
+      }
+
+      .entry {
+        padding: 4mm 0;
+        border-top: 1px solid var(--line);
+        break-inside: avoid;
+      }
+
+      .entry-heading {
+        display: flex;
+        justify-content: space-between;
+        gap: 6mm;
+        align-items: baseline;
+      }
+
+      .entry-heading > div { min-width: 0; }
+
+      .entry-heading time,
+      .entry-heading > a {
+        flex: 0 0 auto;
+        color: var(--accent);
+        font-size: 7.8pt;
+        font-weight: 700;
+      }
+
+      .organization {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 8.2pt;
+      }
+
+      .entry > p {
+        margin: 2.5mm 0 0;
+        color: var(--muted);
+        font-size: 8.4pt;
+        line-height: 1.55;
+      }
+
+      .entry .stack {
+        color: var(--ink);
+        font-size: 7.4pt;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 8mm;
+        margin-top: 8mm;
+        padding-top: 4mm;
+        border-top: 2px solid var(--ink);
+        color: var(--muted);
+        font-size: 7.5pt;
+      }
+
+      @media print {
+        html {
+          height: 100%;
+          overflow: hidden;
+          background: var(--paper);
+        }
+
+        body {
+          width: 116.28%;
+          min-height: auto;
+          margin: 0;
+          padding: 0;
+          background: var(--paper);
+          box-shadow: none;
+          transform: scale(0.86);
+          transform-origin: top left;
+        }
+      }
+
+      @media screen and (max-width: 760px) {
+        body {
+          width: calc(100% - 24px);
+          margin: 12px;
+          padding: 24px;
+        }
+
+        .masthead, .layout { grid-template-columns: 1fr; }
+        address { text-align: left; }
+        .sidebar {
+          padding-right: 0;
+          padding-bottom: 8mm;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="masthead">
+        <div>
+          <h1>Muhammad Reebal Raza</h1>
+          <p class="role">Software engineer · Developer</p>
+        </div>
+        <address>
+          <span>Islamabad, Pakistan</span>
+          <a href="mailto:m.reebal.r@gmail.com">m.reebal.r@gmail.com</a>
+          <a href="tel:+923205722557">+923205722557</a>
+        </address>
+      </div>
+      <p class="summary">
+        Software engineer with more than six years of experience designing and delivering reliable web, mobile, cloud, and AI-enabled products. I combine strong foundations in systems programming with full-stack engineering to translate complex business and technical requirements into scalable, maintainable solutions. My work spans software architecture, backend services, modern user experiences, data-intensive applications, AWS deployments, performance optimization, and technical leadership, with a consistent focus on code quality, operational reliability, and long-term product value.
+      </p>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <section>
+          <h2>Technical skills</h2>
+          <dl>
+      <div class="skill-group">
+        <dt>Languages</dt>
+        <dd>C++, C, Java, Python, JavaScript, TypeScript, SQL</dd>
+      </div>
+      <div class="skill-group">
+        <dt>Full stack</dt>
+        <dd>MERN, React, React Native, Node.js, Express.js, Flask, Spring Boot, REST APIs</dd>
+      </div>
+      <div class="skill-group">
+        <dt>AI &amp; Data</dt>
+        <dd>Machine Learning, NLP, AI applications, PostgreSQL, MySQL, Redis</dd>
+      </div>
+      <div class="skill-group">
+        <dt>Web &amp; Cloud</dt>
+        <dd>HTML, CSS, Bootstrap, TypeORM, Docker, AWS, Git, CI/CD</dd>
+      </div></dl>
+        </section>
+        <section>
+          <h2>Education</h2>
+          <div class="education-list">
+      <article class="education-item">
+        <div>
+          <h3>BS Software Engineering</h3>
+          <time>2019 to 2023</time>
+        </div>
+        <p>Capital University of Science and Technology</p>
+        <strong>CGPA 3.89 / 4.00 · Silver Medalist</strong>
+      </article></div>
+        </section>
+      </aside>
+
+      <div>
+        <section>
+          <h2>Professional experience</h2>
+          
+      <article class="entry">
+        <div class="entry-heading">
+          <div>
+            <h3>Senior Software Engineer / Developer</h3>
+            <p class="organization">Current Position</p>
+          </div>
+          <time>2024 to now</time>
+        </div>
+        <p>Designing and shipping scalable web platforms, backend services, and AI-enabled features while owning system architecture, code quality, cloud deployments, performance, and technical mentoring across the delivery lifecycle.</p>
+      </article>
+      <article class="entry">
+        <div class="entry-heading">
+          <div>
+            <h3>Lead Software Engineer / Developer</h3>
+            <p class="organization">New Avenue</p>
+          </div>
+          <time>2023 to 2024</time>
+        </div>
+        <p>Led end-to-end product delivery, translating business requirements into maintainable full-stack and cloud solutions while guiding architecture, code reviews, API design, releases, and day-to-day technical direction.</p>
+      </article>
+      <article class="entry">
+        <div class="entry-heading">
+          <div>
+            <h3>Freelance Software Engineer / Developer</h3>
+            <p class="organization">Independent</p>
+          </div>
+          <time>2019 to 2023</time>
+        </div>
+        <p>Delivered web and mobile products across varied industries, taking work from discovery and system design through full-stack development, API integrations, database architecture, deployment, optimization, and long-term support.</p>
+      </article>
+        </section>
+        <section>
+          <h2>Selected projects</h2>
+          
+      <article class="entry project">
+        <div class="entry-heading">
+          <div>
+            <h3>GoHosty</h3>
+            <p class="organization">One workspace for every short-term rental operation</p>
+          </div>
+          <a href="https://gohosty.com/">Website ↗</a>
+        </div>
+        <p>An all-in-one short-term rental operations platform that centralizes OTA bookings, availability, guest messaging, dynamic pricing, cleaning workflows, payments, and owner reporting in one dependable workspace.</p>
+        <p class="stack">MongoDB · Express.js · React · Node.js · REST APIs</p>
+      </article>
+      <article class="entry project">
+        <div class="entry-heading">
+          <div>
+            <h3>MoneyVote Quest</h3>
+            <p class="organization">Financial literacy learned through real decisions</p>
+          </div>
+          <a href="https://moneyvotequest.com/">Website ↗</a>
+        </div>
+        <p>An interactive financial literacy and civic learning platform where young people manage budgets, navigate economic crises, debate policy choices, vote as teams, and see the impact of their decisions through live results.</p>
+        <p class="stack">MERN · Interactive simulations · Live results · Data visualization</p>
+      </article>
+      <article class="entry project">
+        <div class="entry-heading">
+          <div>
+            <h3>MJMarry</h3>
+            <p class="organization">Privacy-first matchmaking for a global Muslim community</p>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.iahtasham.mjmarry">Website ↗</a>
+        </div>
+        <p>A privacy-focused Muslim matrimonial app with profile discovery, faith-based matching filters, private chat, voice messaging, voice and video calls, multilingual access, and built-in safety controls.</p>
+        <p class="stack">React Native · Android · Real-time messaging · Voice and video</p>
+      </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Muhammad Reebal Raza · Curriculum Vitae</span>
+      <span>References available upon request</span>
+    </footer>
+  </body>
+</html>

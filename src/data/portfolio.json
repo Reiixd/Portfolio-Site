@@ -6,9 +6,12 @@
     "location": " Islamabad, Pakistan",
     "email": "m.reebal.r@gmail.com",
     "phone": "+923205722557",
+    "linkedin": "https://www.linkedin.com/in/m-reebal-r/",
     "heroImage": "/assets/alex-ren-hero.png",
     "headline": ["I build systems", "that remember."],
-    "introduction": "M. Reebal turns complex infrastructure into products people trust."
+    "introduction": "M. Reebal turns complex infrastructure into products people trust.",
+    "professionalSummary": "Software engineer with more than six years of experience designing and delivering reliable web, mobile, cloud, and AI-enabled products. I combine strong foundations in systems programming with full-stack engineering to translate complex business and technical requirements into scalable, maintainable solutions. My work spans software architecture, backend services, modern user experiences, data-intensive applications, AWS deployments, performance optimization, and technical leadership, with a consistent focus on code quality, operational reliability, and long-term product value.",
+    "atsSummary": "Software engineer with 6+ years of experience delivering scalable web, mobile, cloud, and AI-enabled products. Combines systems programming and full-stack expertise across architecture, backend services, modern interfaces, data-intensive applications, AWS deployment, and performance optimization. Proven technical leadership with a focus on maintainable code, operational reliability, and long-term product value."
   },
   "navigation": [
     { "id": "home", "label": "Home", "weight": 1.7 },
@@ -79,6 +82,28 @@
           "role": "Freelance Software Engineer / Developer",
           "company": "Independent",
           "description": "Delivered web and mobile products across varied industries, taking work from discovery and system design through full-stack development, API integrations, database architecture, deployment, optimization, and long-term support."
+        }
+      ]
+    },
+    "education": {
+      "items": [
+        {
+          "period": "2019 to 2023",
+          "qualification": "BS Software Engineering",
+          "institution": "Capital University of Science and Technology",
+          "detail": "CGPA 3.89 / 4.00 · Silver Medalist"
+        },
+        {
+          "period": "2016 to 2018",
+          "qualification": "FSc Pre-Engineering",
+          "institution": "Islamabad Model College I-8/3",
+          "detail": ""
+        },
+        {
+          "period": "2014 to 2016",
+          "qualification": "Matric Pre-Engineering",
+          "institution": "Islamabad Model College I-8/3",
+          "detail": ""
         }
       ]
     },
