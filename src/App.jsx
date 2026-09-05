@@ -388,7 +388,7 @@ export default function App() {
           <div data-sc-world className="world-stage">
             <WorldCanvas worldRef={worldRef} totalWeight={totalWeight} />
 
-            <figure className="hero-figure" aria-hidden="true">
+            {/* <figure className="hero-figure" aria-hidden="true">
               <img
                 src={profile.heroImage}
                 alt=""
@@ -396,7 +396,7 @@ export default function App() {
                 height="1054"
                 decoding="async"
               />
-            </figure>
+            </figure> */}
 
             <div className="world-depth world-depth--near" aria-hidden="true" />
             <div className="world-depth world-depth--far" aria-hidden="true" />
