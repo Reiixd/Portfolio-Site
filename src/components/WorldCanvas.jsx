@@ -40,6 +40,17 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
     let width = 0
     let height = 0
     let dpr = 1
+    let palette
+
+    const readPalette = () => {
+      const styles = getComputedStyle(document.documentElement)
+      return {
+        canvas: styles.getPropertyValue('--sc-canvas').trim() || 'oklch(0.1 0 0)',
+        surface: styles.getPropertyValue('--sc-surface').trim() || 'oklch(0.16 0.012 210)',
+        primary: styles.getPropertyValue('--sc-primary').trim() || 'oklch(0.58 0.09 210)',
+        accent: styles.getPropertyValue('--sc-accent').trim() || 'oklch(0.89 0.19 108)',
+      }
+    }
 
     const resize = () => {
       width = window.innerWidth
@@ -50,6 +61,7 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
       canvas.style.width = `${width}px`
       canvas.style.height = `${height}px`
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      palette = readPalette()
       draw()
     }
 
@@ -62,8 +74,8 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
 
     const drawBuildings = (progress) => {
       const horizon = height * (0.42 - progress * 0.08)
-      ctx.strokeStyle = 'oklch(0.58 0.09 210)'
-      ctx.fillStyle = 'oklch(0.16 0.012 210)'
+      ctx.strokeStyle = palette.primary
+      ctx.fillStyle = palette.surface
 
       for (let i = 0; i < 18; i += 1) {
         const lane = i / 17
@@ -82,13 +94,13 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
           const wy = y + 12 + row * 18
           if (wy > y + bh - 8) break
           ctx.globalAlpha = ((i + row) % 4 === 0 ? 0.5 : 0.15) * (0.4 + progress)
-          ctx.fillStyle = (i + row) % 4 === 0 ? 'oklch(0.89 0.19 108)' : 'oklch(0.58 0.09 210)'
+          ctx.fillStyle = (i + row) % 4 === 0 ? palette.accent : palette.primary
           ctx.fillRect(x + 8, wy, 3, 3)
-          ctx.fillStyle = 'oklch(0.16 0.012 210)'
+          ctx.fillStyle = palette.surface
         }
       }
 
-      ctx.strokeStyle = 'oklch(0.58 0.09 210)'
+      ctx.strokeStyle = palette.primary
       const vanishing = [width * (0.68 + progress * 0.08), horizon]
       for (let i = -5; i <= 8; i += 1) {
         line(ctx, [width * (i / 7), height], vanishing, 0.08 + progress * 0.11)
@@ -102,7 +114,7 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
     const drawRoute = (progress) => {
       const reveal = Math.min(1, progress * 1.35)
       const points = route.map(([x, y]) => [x * width, y * height])
-      ctx.strokeStyle = 'oklch(0.66 0.11 210)'
+      ctx.strokeStyle = palette.primary
 
       for (let i = 0; i < points.length - 1; i += 1) {
         const start = i / (points.length - 1)
@@ -120,8 +132,8 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
         if (index / (points.length - 1) > reveal + 0.02) return
         const active = Math.round(reveal * (points.length - 1)) === index
         ctx.globalAlpha = active ? 1 : 0.72
-        ctx.fillStyle = active ? 'oklch(0.89 0.19 108)' : 'oklch(0.10 0 0)'
-        ctx.strokeStyle = active ? 'oklch(0.89 0.19 108)' : 'oklch(0.66 0.11 210)'
+        ctx.fillStyle = active ? palette.accent : palette.canvas
+        ctx.strokeStyle = active ? palette.accent : palette.primary
         ctx.lineWidth = active ? 2 : 1.25
         ctx.beginPath()
         ctx.arc(point[0], point[1], active ? 7 : 5, 0, Math.PI * 2)
@@ -137,13 +149,13 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
       const radius = Math.min(width, height) * (0.34 + local * 0.08)
       const pts = satellites.map(([x, y]) => [centre[0] + x * radius, centre[1] + y * radius])
       const visible = Math.ceil(local * pts.length)
-      ctx.strokeStyle = 'oklch(0.66 0.11 210)'
+      ctx.strokeStyle = palette.primary
 
       pts.slice(0, visible).forEach((point, index) => {
         line(ctx, centre, point, 0.22 + local * 0.55, 1)
         if (index > 0) line(ctx, pts[index - 1], point, 0.18 + local * 0.35, 1)
-        ctx.fillStyle = 'oklch(0.10 0 0)'
-        ctx.strokeStyle = 'oklch(0.66 0.11 210)'
+        ctx.fillStyle = palette.canvas
+        ctx.strokeStyle = palette.primary
         ctx.globalAlpha = 0.85
         ctx.beginPath()
         ctx.arc(point[0], point[1], 5, 0, Math.PI * 2)
@@ -152,8 +164,8 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
       })
 
       const pulse = reduceMotion.matches ? 9 : 8 + Math.sin(performance.now() / 260) * 2
-      ctx.fillStyle = 'oklch(0.89 0.19 108)'
-      ctx.strokeStyle = 'oklch(0.89 0.19 108)'
+      ctx.fillStyle = palette.accent
+      ctx.strokeStyle = palette.accent
       ctx.globalAlpha = 1
       ctx.beginPath()
       ctx.arc(centre[0], centre[1], pulse, 0, Math.PI * 2)
@@ -170,7 +182,7 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
       const root = worldRef.current
       root?.style.setProperty('--journey', progress.toFixed(4))
       ctx.globalAlpha = 1
-      ctx.fillStyle = 'oklch(0.10 0 0)'
+      ctx.fillStyle = palette.canvas
       ctx.fillRect(0, 0, width, height)
       drawBuildings(progress)
       drawRoute(progress)
@@ -182,9 +194,15 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
       if (!frame) frame = requestAnimationFrame(draw)
     }
 
+    const updatePalette = () => {
+      palette = readPalette()
+      schedule()
+    }
+
     resize()
     window.addEventListener('resize', resize, { passive: true })
     window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('portfolio:themechange', updatePalette)
 
     let pulseFrame
     const pulse = () => {
@@ -196,6 +214,7 @@ export default function WorldCanvas({ worldRef, totalWeight }) {
     return () => {
       window.removeEventListener('resize', resize)
       window.removeEventListener('scroll', schedule)
+      window.removeEventListener('portfolio:themechange', updatePalette)
       cancelAnimationFrame(frame)
       cancelAnimationFrame(pulseFrame)
     }
