@@ -79,7 +79,7 @@
         },
         {
           "label": "Cloud & Delivery",
-          "value": "AWS, Docker, Git, CI/CD, Jira, Jest, error reporting"
+          "value": "AWS; working familiarity with Lambda, ECS, S3, and RDS; Docker, Git, CI/CD, Jira, Jest, error reporting"
         },
         {
           "label": "AI & Integrations",

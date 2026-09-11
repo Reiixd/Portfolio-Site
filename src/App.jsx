@@ -139,7 +139,7 @@ function MinimalPortfolio() {
           <span>{profile.location.trim()}</span>
           <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
           <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
-          <a href="/Muhammad-Reebal-Raza-CV.tex" download>Download master CV (LaTeX)</a>
+          {/*<a href="/Muhammad-Reebal-Raza-CV.tex" download>Download master CV (LaTeX)</a>*/}
           <a href={mailHref}>{profile.email}</a>
           <a href={phoneHref}>{profile.phone}</a>
         </address>
