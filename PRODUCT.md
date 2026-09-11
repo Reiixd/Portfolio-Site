@@ -14,7 +14,7 @@ Recruiters, engineering leaders, founders, and potential collaborators evaluatin
 
 ## Product Purpose
 
-Present a fictional but credible software-engineering profile through an interactive, scroll-driven portfolio. The site should leave visitors believing this engineer can turn difficult systems into thoughtful, dependable products, then invite them to make contact.
+Present Muhammad Reebal Raza’s factual, comprehensive professional profile through an interactive, scroll-driven portfolio. The site should leave visitors believing this engineer can turn difficult systems into thoughtful, dependable products, then invite them to make contact.
 
 ## Brand Personality
 

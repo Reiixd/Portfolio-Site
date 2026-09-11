@@ -1,12 +1,12 @@
 {
-  "name": "alex-ren-portfolio",
+  "name": "reebal-portfolio",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "cv": "node scripts/generate-cv.mjs",
+    "cv": "node scripts/sync-master-cv.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {

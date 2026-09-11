@@ -1,4 +1,6 @@
-% ATS-friendly single-column CV generated from src/data/portfolio.json
+% MASTER CV: canonical source for tailored applications.
+% Save job-specific copies under Applications/<Company>/<Role>/; do not overwrite this master.
+% Consult MASTER_NOTES.md for confirmed facts and unresolved details.
 \documentclass[10pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -29,22 +31,42 @@
 \fontsize{10}{11.5}\selectfont
 {\LARGE\bfseries Muhammad Reebal Raza}\par\vspace{0.8mm}
 Islamabad, Pakistan \textbar{} \href{mailto:m.reebal.r@gmail.com}{m.reebal.r@gmail.com} \textbar{} \href{tel:+923205722557}{+923205722557}\par
-\textbf{Target Role:} Software engineer \textperiodcentered{} Developer
+\href{https://www.linkedin.com/in/m-reebal-r/}{LinkedIn: www.linkedin.com/in/m-reebal-r}\par
+\href{https://reebalportfolio.netlify.app/}{Portfolio: reebalportfolio.netlify.app} \textbar{} \href{https://github.com/Reiixd}{GitHub: github.com/Reiixd}\par
+\textbf{Senior Full-Stack Developer \textbar{} React, Node.js \& React Native}\par
+Open to Islamabad-based roles and remote opportunities worldwide.
 \atssection{Professional Summary}
-Software engineer with 6+ years of experience delivering scalable web, mobile, cloud, and AI-enabled products. Combines systems programming and full-stack expertise across architecture, backend services, modern interfaces, data-intensive applications, AWS deployment, and performance optimization. Proven technical leadership with a focus on maintainable code, operational reliability, and long-term product value.
+Full-Stack Developer building web and mobile products since 2019, including project-based freelance work. Primary developer for a React Native and Firebase financial literacy application, with substantial ownership of a rental management platform. Experience making architecture decisions, coordinating small to medium development teams, and preparing applications for client review.
 \atssection{Technical Skills}
-\cvskill{Languages}{C++, C, Java, Python, JavaScript, TypeScript, SQL}
-\cvskill{Full stack}{MERN, React, React Native, Node.js, Express.js, Flask, Spring Boot, REST APIs}
-\cvskill{AI \& Data}{Machine Learning, NLP, AI applications, PostgreSQL, MySQL, Redis}
-\cvskill{Web \& Cloud}{HTML, CSS, Bootstrap, TypeORM, Docker, AWS, Git, CI/CD}
+\cvskill{Frontend \& Mobile}{React, React Native, JavaScript, TypeScript, HTML, CSS, Bootstrap}
+\cvskill{Backend}{Node.js, Express.js, REST APIs, Python, Flask, Java, Spring Boot}
+\cvskill{Data \& Cloud}{SQL, Firebase, MongoDB, PostgreSQL, MySQL, Redis, TypeORM, AWS, Docker}
+\cvskill{Tools \& Integrations}{Git, CI/CD, Jira, Jest, Stripe, NextPax}
+\cvskill{AI Development}{Claude Code, MCP server usage, LLM integrations}
+\cvskill{Additional Experience}{C, C++, machine learning, natural language processing (NLP)}
 \atssection{Professional Experience}
-\cventry{2024 to now}{Senior Software Engineer / Developer}{Current Position}{Designing and shipping scalable web platforms, backend services, and AI-enabled features while owning system architecture, code quality, cloud deployments, performance, and technical mentoring across the delivery lifecycle.}
-\cventry{2023 to 2024}{Lead Software Engineer / Developer}{New Avenue}{Led end-to-end product delivery, translating business requirements into maintainable full-stack and cloud solutions while guiding architecture, code reviews, API design, releases, and day-to-day technical direction.}
-\cventry{2019 to 2023}{Freelance Software Engineer / Developer}{Independent}{Delivered web and mobile products across varied industries, taking work from discovery and system design through full-stack development, API integrations, database architecture, deployment, optimization, and long-term support.}
+\cventry{Feb 2024 -- Present}{Lead Senior Developer}{Vicots}{%
+\begin{itemize}
+\item Built the MoneyVote Quest mobile application with React Native and Firebase, along with its website and administrative controls, as the primary developer within a team.
+\item Take primary technical ownership of GoHosty across frontend and backend development, PostgreSQL database design, REST APIs, security, and error reporting.
+\item Wrote Jest tests and database migrations, optimized SQL queries, and built an LLM assistant that performs actions for users in GoHosty's dashboard and onboarding flows.
+\end{itemize}}
+\cventry{Mar 2023 -- Feb 2024}{Senior Developer}{New Avenue}{%
+\begin{itemize}
+\item Designed the user-matching algorithm and MongoDB database for MJMarry while developing its existing React Native application within a team.
+\item Revamped the application's interface and user experience, built the accompanying website, and contributed to growing its user base.
+\end{itemize}}
+\cventry{2019 -- 2023}{Full-Stack Developer}{Independent Freelance \textbar{} Project-based}{%
+\begin{itemize}
+\item Delivered client web and mobile projects, covering requirements, frontend and backend development, API integrations, database design, deployment, and ongoing support. Gained hands-on Python ETL experience on freelance projects.
+\end{itemize}}
+\textbf{Technical leadership:} Made architecture decisions, managed small to medium development teams, and finalized applications before client presentations.\par\vspace{1mm}
 \atssection{Selected Projects}
-\cvproject{GoHosty}{One workspace for every short-term rental operation}{An all-in-one short-term rental operations platform that centralizes OTA bookings, availability, guest messaging, dynamic pricing, cleaning workflows, payments, and owner reporting in one dependable workspace.}{MongoDB \textperiodcentered{} Express.js \textperiodcentered{} React \textperiodcentered{} Node.js \textperiodcentered{} REST APIs}{https://gohosty.com/}
-\cvproject{MoneyVote Quest}{Financial literacy learned through real decisions}{An interactive financial literacy and civic learning platform where young people manage budgets, navigate economic crises, debate policy choices, vote as teams, and see the impact of their decisions through live results.}{MERN \textperiodcentered{} Interactive simulations \textperiodcentered{} Live results \textperiodcentered{} Data visualization}{https://moneyvotequest.com/}
-\cvproject{MJMarry}{Privacy-first matchmaking for a global Muslim community}{A privacy-focused Muslim matrimonial app with profile discovery, faith-based matching filters, private chat, voice messaging, voice and video calls, multilingual access, and built-in safety controls.}{React Native \textperiodcentered{} Android \textperiodcentered{} Real-time messaging \textperiodcentered{} Voice and video}{https://play.google.com/store/apps/details?id=com.iahtasham.mjmarry}
+\cvproject{GoHosty}{Rental management platform \textbar{} Vicots}{Team-built platform with bookings, custom Redis-based chat, Stripe payments, and property operations; ongoing full-stack development and technical ownership.}{PostgreSQL \textperiodcentered{} Express.js \textperiodcentered{} React \textperiodcentered{} Node.js \textperiodcentered{} AWS}{https://gohosty.com/}
+\cvproject{MoneyVote Quest}{Financial literacy platform \textbar{} Vicots}{Delivered the mobile app, website, and admin controls for interactive budgeting, economic scenarios, and team voting; the platform includes custom Redis-based chat.}{React Native \textperiodcentered{} Firebase \textperiodcentered{} AWS}{https://moneyvotequest.com/}
+\cvproject{MJMarry}{Matrimonial application \textbar{} New Avenue}{Extended an existing team-built app with matching logic, database design, and a UI/UX revamp; created its website. The app includes custom Redis-based chat, voice calls, and video chat.}{React Native \textperiodcentered{} MongoDB \textperiodcentered{} AWS}{https://play.google.com/store/apps/details?id=com.iahtasham.mjmarry}
+\atssection{Additional Engineering Experience}
+Developed a Human Action Recognition (HAR) application end-to-end, owning the data pipeline, ETL, model training, Python/Flask backend, and React frontend. Used Claude Code with MCP servers on a Unity extension of MoneyVote Quest and accessed NextPax and other API knowledge bases through MCP.\par
 \atssection{Education}
-\cveducation{2019 to 2023}{BS Software Engineering}{Capital University of Science and Technology}{CGPA 3.89 / 4.00 \textperiodcentered{} Silver Medalist}
+\cveducation{2019 -- 2023}{BS Software Engineering}{Capital University of Science and Technology}{CGPA 3.89 / 4.00 \textperiodcentered{} Silver Medalist (Department)}
 \end{document}

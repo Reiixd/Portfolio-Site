@@ -2,96 +2,176 @@
   "profile": {
     "name": "Muhammad Reebal Raza",
     "initials": "MR",
-    "roles": ["Software engineer ", " Developer "],
-    "location": " Islamabad, Pakistan",
+    "roles": [
+      "Senior Full-Stack Developer"
+    ],
+    "location": "Islamabad, Pakistan",
     "email": "m.reebal.r@gmail.com",
     "phone": "+923205722557",
     "linkedin": "https://www.linkedin.com/in/m-reebal-r/",
+    "portfolio": "https://reebalportfolio.netlify.app/",
+    "github": "https://github.com/Reiixd",
     "heroImage": "/assets/alex-ren-hero.png",
-    "headline": ["I build systems", "that remember."],
-    "introduction": "M. Reebal turns complex infrastructure into products people trust.",
-    "professionalSummary": "Software engineer with more than six years of experience designing and delivering reliable web, mobile, cloud, and AI-enabled products. I combine strong foundations in systems programming with full-stack engineering to translate complex business and technical requirements into scalable, maintainable solutions. My work spans software architecture, backend services, modern user experiences, data-intensive applications, AWS deployments, performance optimization, and technical leadership, with a consistent focus on code quality, operational reliability, and long-term product value.",
-    "atsSummary": "Software engineer with 6+ years of experience delivering scalable web, mobile, cloud, and AI-enabled products. Combines systems programming and full-stack expertise across architecture, backend services, modern interfaces, data-intensive applications, AWS deployment, and performance optimization. Proven technical leadership with a focus on maintainable code, operational reliability, and long-term product value."
+    "headline": [
+      "From backend logic",
+      "to human experience."
+    ],
+    "introduction": "I build web and mobile products, backend services, and AI features, with engineering experience since 2019.",
+    "professionalSummary": "I am Muhammad Reebal Raza, a full-stack developer based in Islamabad. My experience spans project-based freelance work since 2019, senior development at New Avenue, and technical ownership at Vicots. I work across React, React Native, Node.js, Python/Flask, databases, AWS, and AI integrations, from application architecture and data pipelines to interfaces, testing, and delivery.",
+    "atsSummary": "I am Muhammad Reebal Raza, a full-stack developer based in Islamabad. My experience spans project-based freelance work since 2019, senior development at New Avenue, and technical ownership at Vicots. I work across React, React Native, Node.js, Python/Flask, databases, AWS, and AI integrations, from application architecture and data pipelines to interfaces, testing, and delivery.",
+    "availability": "Open to senior roles in Islamabad and remote opportunities worldwide, with availability for US-team overlap."
   },
   "navigation": [
-    { "id": "home", "label": "Home", "weight": 1.7 },
-    { "id": "systems", "label": "Systems", "weight": 1.7 },
-    { "id": "work", "label": "Work", "weight": 3.2 },
-    { "id": "experience", "label": "Experience", "weight": 2.7 },
-    { "id": "principles", "label": "Principles", "weight": 1.5 },
-    { "id": "contact", "label": "Contact", "weight": 1.4 }
+    {
+      "id": "home",
+      "label": "Home",
+      "weight": 1.7
+    },
+    {
+      "id": "systems",
+      "label": "Systems",
+      "weight": 1.7
+    },
+    {
+      "id": "work",
+      "label": "Work",
+      "weight": 3.2
+    },
+    {
+      "id": "experience",
+      "label": "Experience",
+      "weight": 2.7
+    },
+    {
+      "id": "principles",
+      "label": "Principles",
+      "weight": 1.5
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "weight": 1.4
+    }
   ],
   "sections": {
     "systems": {
-      "headline": ["Complexity in.", "Clarity out."],
-      "description": "I bridge systems programming, AI, and full-stack product engineering, building everything from performant backend services to intelligent web products deployed on AWS.",
+      "headline": [
+        "Complexity in.",
+        "Clarity out."
+      ],
+      "description": "Web and mobile development, backend services, data models, cloud delivery, and applied AI. I make architecture decisions, manage small to medium development teams, and prepare applications for client review.",
       "capabilities": [
-        { "label": "Languages", "value": "C++, C, Java, Python, JavaScript, TypeScript, SQL" },
-        { "label": "Full stack", "value": "MERN, React, React Native, Node.js, Express.js, Flask, Spring Boot, REST APIs" },
-        { "label": "AI & Data", "value": "Machine Learning, NLP, AI applications, PostgreSQL, MySQL, Redis" },
-        { "label": "Web & Cloud", "value": "HTML, CSS, Bootstrap, TypeORM, Docker, AWS, Git, CI/CD" }
+        {
+          "label": "Languages",
+          "value": "JavaScript, TypeScript, Python, SQL, Java, C++, C"
+        },
+        {
+          "label": "Web & Mobile",
+          "value": "React, React Native, HTML, CSS, Bootstrap"
+        },
+        {
+          "label": "Backend",
+          "value": "Node.js, Express.js, REST APIs, Flask, Spring Boot"
+        },
+        {
+          "label": "Data",
+          "value": "PostgreSQL, MySQL, MongoDB, Redis, Firebase, TypeORM, migrations, query optimization, ETL"
+        },
+        {
+          "label": "Cloud & Delivery",
+          "value": "AWS, Docker, Git, CI/CD, Jira, Jest, error reporting"
+        },
+        {
+          "label": "AI & Integrations",
+          "value": "Machine learning, computer vision, NLP, LLM integrations, Claude Code, MCP server usage, Stripe, NextPax"
+        }
       ]
     },
     "work": {
-      "headline": ["Selected work,", "built to hold up."],
+      "headline": [
+        "Selected work,",
+        "built to hold up."
+      ],
       "projects": [
         {
           "name": "GoHosty",
-          "title": "One workspace for every short-term rental operation",
-          "summary": "An all-in-one short-term rental operations platform that centralizes OTA bookings, availability, guest messaging, dynamic pricing, cleaning workflows, payments, and owner reporting in one dependable workspace.",
-          "stack": "MongoDB · Express.js · React · Node.js · REST APIs",
+          "title": "Rental operations | Vicots",
+          "summary": "Major full-stack ownership within a team, covering backend services, REST APIs, PostgreSQL data models, React interfaces, security, optimization, and error reporting.",
+          "stack": "React · Node.js · Express.js · PostgreSQL · Redis · Stripe · AWS",
           "url": "https://gohosty.com/",
-          "linkLabel": "Visit GoHosty"
+          "linkLabel": "Visit GoHosty",
+          "contributions": [
+            "Wrote Jest tests and database migrations, and optimized SQL queries.",
+            "Built an LLM assistant that performs actions for users in the dashboard and onboarding flows.",
+            "The platform supports booking workflows, custom Redis-based chat, Stripe payments, and property operations."
+          ]
         },
         {
           "name": "MoneyVote Quest",
-          "title": "Financial literacy learned through real decisions",
-          "summary": "An interactive financial literacy and civic learning platform where young people manage budgets, navigate economic crises, debate policy choices, vote as teams, and see the impact of their decisions through live results.",
-          "stack": "MERN · Interactive simulations · Live results · Data visualization",
+          "title": "Financial literacy across mobile and web | Vicots",
+          "summary": "Primary developer within a team: built the React Native application, Firebase backend, website, and administrative controls for budgeting simulations and team voting.",
+          "stack": "React Native · Firebase · Redis · AWS",
           "url": "https://moneyvotequest.com/",
-          "linkLabel": "Visit MoneyVote Quest"
+          "linkLabel": "Visit MoneyVote Quest",
+          "contributions": [
+            "The platform includes custom Redis-based chat.",
+            "Used Claude Code with MCP during limited work on a Unity extension of the product."
+          ]
         },
         {
           "name": "MJMarry",
-          "title": "Privacy-first matchmaking for a global Muslim community",
-          "summary": "A privacy-focused Muslim matrimonial app with profile discovery, faith-based matching filters, private chat, voice messaging, voice and video calls, multilingual access, and built-in safety controls.",
-          "stack": "React Native · Android · Real-time messaging · Voice and video",
+          "title": "Matchmaking application | New Avenue",
+          "summary": "Extended an existing team-built React Native application: designed the user-matching algorithm and MongoDB database, revamped the UI/UX, and created its website.",
+          "stack": "React Native · MongoDB · Redis · AWS",
           "url": "https://play.google.com/store/apps/details?id=com.iahtasham.mjmarry",
-          "linkLabel": "Visit MJMarry"
+          "linkLabel": "Visit MJMarry",
+          "contributions": [
+            "Contributed to growing the user base through work on the application and its user experience.",
+            "The app includes custom Redis-based chat, voice calls, and video chat."
+          ]
+        },
+        {
+          "name": "Human Action Recognition (HAR)",
+          "title": "Computer vision from data to interface",
+          "summary": "Developed the complete application to recognize human actions, owning the data pipeline, ETL, model training, Python/Flask backend, and React frontend.",
+          "stack": "Python · Flask · React · ETL · Model training",
+          "url": null,
+          "linkLabel": null,
+          "contributions": []
         }
       ]
     },
     "experience": {
       "label": "The route so far",
-      "headline": "Experience is a connected system.",
+      "headline": "From independent projects to technical ownership.",
       "items": [
         {
-          "period": "2024 to now",
-          "role": "Senior Software Engineer / Developer",
-          "company": "Current Position",
-          "description": "Designing and shipping scalable web platforms, backend services, and AI-enabled features while owning system architecture, code quality, cloud deployments, performance, and technical mentoring across the delivery lifecycle."
+          "period": "Feb 2024 – Present",
+          "role": "Lead Senior Developer",
+          "company": "Vicots",
+          "description": "Full-stack ownership of GoHosty and primary development of MoneyVote Quest, spanning APIs, databases, interfaces, testing, and AI features."
         },
         {
-          "period": "2023 to 2024",
-          "role": "Lead Software Engineer / Developer",
+          "period": "Mar 2023 – Feb 2024",
+          "role": "Senior Developer",
           "company": "New Avenue",
-          "description": "Led end-to-end product delivery, translating business requirements into maintainable full-stack and cloud solutions while guiding architecture, code reviews, API design, releases, and day-to-day technical direction."
+          "description": "Developed MJMarry’s matching algorithm, MongoDB database, UI/UX revamp, and website as part of a team."
         },
         {
-          "period": "2019 to 2023",
-          "role": "Freelance Software Engineer / Developer",
-          "company": "Independent",
-          "description": "Delivered web and mobile products across varied industries, taking work from discovery and system design through full-stack development, API integrations, database architecture, deployment, optimization, and long-term support."
+          "period": "2019 – 2023",
+          "role": "Full-Stack Developer",
+          "company": "Independent · Project-based freelance",
+          "description": "Delivered client web and mobile projects from requirements and API integrations through database design, deployment, and ongoing support. Gained hands-on Python ETL experience."
         }
       ]
     },
     "education": {
       "items": [
         {
-          "period": "2019 to 2023",
+          "period": "2019 – 2023",
           "qualification": "BS Software Engineering",
           "institution": "Capital University of Science and Technology",
-          "detail": "CGPA 3.89 / 4.00 · Silver Medalist"
+          "detail": "CGPA 3.89 / 4.00 · Silver Medalist (Department)"
         },
         {
           "period": "2016 to 2018",
@@ -107,8 +187,20 @@
         }
       ]
     },
+    "interests": {
+      "items": [
+        "Artificial Intelligence, Machine Learning & Natural Language Processing",
+        "Distributed Systems & Cloud Architecture",
+        "Backend Engineering & Data-Intensive Applications",
+        "Developer Tooling & Engineering Productivity",
+        "Product Engineering & Scalable Platform Design"
+      ]
+    },
     "principles": {
-      "headline": ["Leave the system", "better than you found it."],
+      "headline": [
+        "Leave the system",
+        "better than you found it."
+      ],
       "description": "I care about boring reliability, legible code, and products that respect the person using them.",
       "items": [
         "Make failure visible.",
@@ -119,11 +211,15 @@
     "contact": {
       "label": "One route left open.",
       "headline": "Let’s build something that lasts.",
-      "description": "Have a difficult system or an ambitious product? I’d like to hear about it.",
+      "description": "Open to senior roles in Islamabad and remote opportunities worldwide, with availability for US-team overlap.",
       "actionLabel": "Contact me"
+    },
+    "practice": {
+      "leadership": "Made architecture decisions, managed small to medium development teams, and finalized applications before client presentations.",
+      "tooling": "Used Claude Code with MCP servers on a Unity extension of MoneyVote Quest and accessed NextPax and other API knowledge bases through MCP. My work also includes LLM integrations and hands-on Python ETL in freelance projects."
     }
   },
   "meta": {
-    "conceptNote": "Concept portfolio · Fictional profile"
+    "conceptNote": "Muhammad Reebal Raza | Full-stack development"
   }
 }

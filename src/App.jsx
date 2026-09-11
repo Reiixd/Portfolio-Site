@@ -96,6 +96,7 @@ function RouteMap({ active, onSelect }) {
       {waypoints.map((item, index) => (
         <button
           className="route-stop"
+          aria-label={item.label}
           key={item.id}
           type="button"
           aria-current={active === index ? 'step' : undefined}
@@ -131,11 +132,14 @@ function MinimalPortfolio() {
           <h1>{profile.name}</h1>
           <p className="cv-role">{profile.roles.map((role) => role.trim()).join(' · ')}</p>
           <p className="cv-summary">
-            <strong>{profile.headline.join(' ')}</strong> {profile.introduction}
+            {profile.professionalSummary}
           </p>
         </div>
         <address className="cv-contact-details">
           <span>{profile.location.trim()}</span>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+          <a href="/Muhammad-Reebal-Raza-CV.tex" download>Download master CV (LaTeX)</a>
           <a href={mailHref}>{profile.email}</a>
           <a href={phoneHref}>{profile.phone}</a>
         </address>
@@ -155,6 +159,17 @@ function MinimalPortfolio() {
             </dl>
           </section>
 
+          <section aria-labelledby="cv-education-title">
+            <h2 id="cv-education-title">Education</h2>
+            {sections.education.items.map(item => <div className="education-record" key={item.qualification}>
+              <h3>{item.qualification}</h3><p>{item.institution}</p><p>{item.period}</p>
+              {item.detail && <p>{item.detail}</p>}
+            </div>)}
+          </section>
+          <section aria-labelledby="cv-interests-title">
+            <h2 id="cv-interests-title">Areas of interest</h2>
+            <ul className="cv-principles">{sections.interests.items.map(item => <li key={item}>{item}</li>)}</ul>
+          </section>
           <section aria-labelledby="cv-principles-title">
             <h2 id="cv-principles-title">Engineering principles</h2>
             <p>{principles.description}</p>
@@ -183,6 +198,10 @@ function MinimalPortfolio() {
             </ol>
           </section>
 
+          <section aria-labelledby="cv-practice-title">
+            <h2 id="cv-practice-title">Engineering practice</h2>
+            <p>{sections.practice.leadership}</p><p>{sections.practice.tooling}</p>
+          </section>
           <section aria-labelledby="cv-projects-title">
             <h2 id="cv-projects-title">Selected projects</h2>
             <div className="cv-projects">
@@ -193,9 +212,10 @@ function MinimalPortfolio() {
                       <h3>{project.name}</h3>
                       <p>{project.title}</p>
                     </div>
-                    <a href={project.url} target="_blank" rel="noreferrer">{project.linkLabel}</a>
+                    {project.url && <a href={project.url} target="_blank" rel="noreferrer">{project.linkLabel}</a>}
                   </div>
                   <p>{project.summary}</p>
+                  <ul className="project-contributions">{project.contributions?.map(item => <li key={item}>{item}</li>)}</ul>
                   <small>{project.stack}</small>
                 </article>
               ))}
@@ -227,9 +247,9 @@ export default function App() {
   })
   const [view, setView] = useState(() => {
     try {
-      return localStorage.getItem('portfolio-view') === 'minimal' ? 'minimal' : 'world'
+      return localStorage.getItem('portfolio-view') === 'world' ? 'world' : 'minimal'
     } catch {
-      return 'world'
+      return 'minimal'
     }
   })
   const totalWeight = useMemo(() => waypoints.reduce((sum, item) => sum + item.weight, 0), [])
@@ -333,7 +353,7 @@ export default function App() {
 
   const goToStart = () => {
     if (view === 'minimal') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
       return
     }
     goTo(0)
@@ -366,11 +386,11 @@ export default function App() {
           <button
             type="button"
             className="display-toggle"
-            aria-label={view === 'minimal' ? 'Switch to immersive portfolio' : 'Switch to minimalist portfolio'}
+            aria-label={view === 'minimal' ? 'Switch to immersive portfolio' : 'Switch to full profile'}
             aria-pressed={view === 'minimal'}
             onClick={() => setView((current) => current === 'world' ? 'minimal' : 'world')}
           >
-            Minimal
+            {view === 'minimal' ? 'Explore' : 'Full profile'}
           </button>
           <ContactMenu label={contact.actionLabel} />
         </div>
@@ -448,9 +468,9 @@ export default function App() {
                     </div>
                     <div className="project-meta">
                       <small>{project.stack}</small>
-                      <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
+                      {project.url && <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
                         {project.linkLabel}
-                      </a>
+                      </a>}
                     </div>
                   </article>
                 ))}
