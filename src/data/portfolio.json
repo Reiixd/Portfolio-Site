@@ -107,18 +107,6 @@
           ]
         },
         {
-          "name": "MoneyVote Quest",
-          "title": "Financial literacy across mobile and web | Vicots",
-          "summary": "Primary developer within a team: built the React Native application, Firebase backend, website, and administrative controls for budgeting simulations and team voting.",
-          "stack": "React Native · Firebase · Redis · AWS",
-          "url": "https://moneyvotequest.com/",
-          "linkLabel": "Visit MoneyVote Quest",
-          "contributions": [
-            "The platform includes custom Redis-based chat.",
-            "Used Claude Code with MCP during limited work on a Unity extension of the product."
-          ]
-        },
-        {
           "name": "MJMarry",
           "title": "Matchmaking application | New Avenue",
           "summary": "Extended an existing team-built React Native application: designed the user-matching algorithm and MongoDB database, revamped the UI/UX, and created its website.",
@@ -149,7 +137,7 @@
           "period": "Feb 2024 – Present",
           "role": "Lead Senior Developer",
           "company": "Vicots",
-          "description": "Full-stack ownership of GoHosty and primary development of MoneyVote Quest, spanning APIs, databases, interfaces, testing, and AI features."
+          "description": "Full-stack ownership of GoHosty and primary development of a financial-literacy platform for a Portugal-based client, spanning APIs, databases, interfaces, testing, and AI features."
         },
         {
           "period": "Mar 2023 – Feb 2024",
@@ -216,7 +204,7 @@
     },
     "practice": {
       "leadership": "Made architecture decisions, managed small to medium development teams, and finalized applications before client presentations.",
-      "tooling": "Used Claude Code with MCP servers on a Unity extension of MoneyVote Quest and accessed NextPax and other API knowledge bases through MCP. My work also includes LLM integrations and hands-on Python ETL in freelance projects."
+      "tooling": "Used Claude Code with MCP servers on a Unity extension of a financial-literacy platform and accessed NextPax and other API knowledge bases through MCP. My work also includes LLM integrations and hands-on Python ETL in freelance projects."
     }
   },
   "meta": {
