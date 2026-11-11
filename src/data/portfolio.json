@@ -3,7 +3,7 @@
     "name": "Muhammad Reebal Raza",
     "initials": "MR",
     "roles": [
-      "Senior Full-Stack Developer"
+      "Full-Stack Developer"
     ],
     "location": "Islamabad, Pakistan",
     "email": "m.reebal.r@gmail.com",
@@ -16,10 +16,10 @@
       "From backend logic",
       "to human experience."
     ],
-    "introduction": "I build web and mobile products, backend services, and AI features, with engineering experience since 2019.",
-    "professionalSummary": "I am Muhammad Reebal Raza, a full-stack developer based in Islamabad. My experience spans project-based freelance work since 2019, senior development at New Avenue, and technical ownership at Vicots. I work across React, React Native, Node.js, Python/Flask, databases, AWS, and AI integrations, from application architecture and data pipelines to interfaces, testing, and delivery.",
-    "atsSummary": "I am Muhammad Reebal Raza, a full-stack developer based in Islamabad. My experience spans project-based freelance work since 2019, senior development at New Avenue, and technical ownership at Vicots. I work across React, React Native, Node.js, Python/Flask, databases, AWS, and AI integrations, from application architecture and data pipelines to interfaces, testing, and delivery.",
-    "availability": "Open to senior roles in Islamabad and remote opportunities worldwide, with availability for US-team overlap."
+    "introduction": "I build web and mobile products, backend services, and AI features, with professional experience since 2023.",
+    "professionalSummary": "I am Muhammad Reebal Raza, a full-stack developer based in Islamabad, building web and mobile products professionally since 2023. I was the primary developer of a React Native and Firebase financial-literacy application and take substantial ownership of GoHosty, a rental management platform. I work across React, Next.js, React Native, Node.js, Python/Flask, databases, AWS, and AI integrations, and have made architecture decisions, coordinated small to medium development teams, and prepared applications for client review.",
+    "atsSummary": "I am Muhammad Reebal Raza, a full-stack developer based in Islamabad, building web and mobile products professionally since 2023. I was the primary developer of a React Native and Firebase financial-literacy application and take substantial ownership of GoHosty, a rental management platform. I work across React, Next.js, React Native, Node.js, Python/Flask, databases, AWS, and AI integrations, and have made architecture decisions, coordinated small to medium development teams, and prepared applications for client review.",
+    "availability": "Open to Islamabad-based roles and remote opportunities worldwide, with availability for US-team overlap."
   },
   "navigation": [
     {
@@ -67,7 +67,7 @@
         },
         {
           "label": "Web & Mobile",
-          "value": "React, React Native, HTML, CSS, Bootstrap"
+          "value": "React, Next.js (App Router, Server Components), React Native, HTML, CSS, Bootstrap"
         },
         {
           "label": "Backend",
@@ -83,7 +83,19 @@
         },
         {
           "label": "AI & Integrations",
-          "value": "Machine learning, computer vision, NLP, LLM integrations, Claude Code, MCP server usage, Stripe, NextPax"
+          "value": "Machine learning, computer vision, NLP, LLM integrations, OpenAI API, prompt engineering, Claude Code, MCP server usage, Stripe, NextPax"
+        },
+        {
+          "label": "Security",
+          "value": "OAuth, JWT authentication, RBAC"
+        },
+        {
+          "label": "Additional Experience",
+          "value": "C and C++ (machine learning, games, backend; CMake, Make, IDE debugging), natural language processing (NLP)"
+        },
+        {
+          "label": "Working Familiarity (non-professional)",
+          "value": "C#, PHP, Angular, Vue.js, Tailwind CSS, NestJS, Django, ASP.NET Core, FastAPI, Azure, GitHub Actions"
         }
       ]
     },
@@ -96,13 +108,13 @@
         {
           "name": "GoHosty",
           "title": "Rental operations | Vicots",
-          "summary": "Major full-stack ownership within a team, covering backend services, REST APIs, PostgreSQL data models, React interfaces, security, optimization, and error reporting.",
-          "stack": "React · Node.js · Express.js · PostgreSQL · Redis · Stripe · AWS",
+          "summary": "Major full-stack ownership within a team, covering backend services, REST APIs, PostgreSQL data models, a Next.js (App Router, Server Components) frontend, security (OAuth, JWT, RBAC), optimization, and error reporting.",
+          "stack": "Next.js · Node.js · Express.js · PostgreSQL · Redis · Stripe · OpenAI API · AWS",
           "url": "https://gohosty.com/",
           "linkLabel": "Visit GoHosty",
           "contributions": [
             "Wrote Jest tests and database migrations, and optimized SQL queries.",
-            "Built an LLM assistant that performs actions for users in the dashboard and onboarding flows.",
+            "Built an LLM assistant, using the OpenAI API and prompt engineering, that performs actions for users in the dashboard and onboarding flows.",
             "The platform supports booking workflows, custom Redis-based chat, Stripe payments, and property operations."
           ]
         },
@@ -131,25 +143,19 @@
     },
     "experience": {
       "label": "The route so far",
-      "headline": "From independent projects to technical ownership.",
+      "headline": "From product development to technical ownership.",
       "items": [
         {
           "period": "Feb 2024 – Present",
-          "role": "Lead Senior Developer",
+          "role": "Lead Full-Stack Developer",
           "company": "Vicots",
           "description": "Full-stack ownership of GoHosty and primary development of a financial-literacy platform for a Portugal-based client, spanning APIs, databases, interfaces, testing, and AI features."
         },
         {
           "period": "Mar 2023 – Feb 2024",
-          "role": "Senior Developer",
+          "role": "Full-Stack Developer",
           "company": "New Avenue",
           "description": "Developed MJMarry’s matching algorithm, MongoDB database, UI/UX revamp, and website as part of a team."
-        },
-        {
-          "period": "2019 – 2023",
-          "role": "Full-Stack Developer",
-          "company": "Independent · Project-based freelance",
-          "description": "Delivered client web and mobile projects from requirements and API integrations through database design, deployment, and ongoing support. Gained hands-on Python ETL experience."
         }
       ]
     },
@@ -199,12 +205,12 @@
     "contact": {
       "label": "One route left open.",
       "headline": "Let’s build something that lasts.",
-      "description": "Open to senior roles in Islamabad and remote opportunities worldwide, with availability for US-team overlap.",
+      "description": "Open to Islamabad-based roles and remote opportunities worldwide, with availability for US-team overlap.",
       "actionLabel": "Contact me"
     },
     "practice": {
       "leadership": "Made architecture decisions, managed small to medium development teams, and finalized applications before client presentations.",
-      "tooling": "Used Claude Code with MCP servers on a Unity extension of a financial-literacy platform and accessed NextPax and other API knowledge bases through MCP. My work also includes LLM integrations and hands-on Python ETL in freelance projects."
+      "tooling": "Uses Claude Code with MCP-connected tooling and accesses NextPax and other API knowledge bases through MCP. My work also includes LLM integrations and hands-on Python ETL, including the data pipeline for the HAR application."
     }
   },
   "meta": {
