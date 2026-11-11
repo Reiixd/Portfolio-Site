@@ -4,7 +4,7 @@ This is Muhammad Reebal Raza's general professional portfolio, not a job-specifi
 
 - Content: src/data/portfolio.json.
 - Truth and scope: ../MASTER_NOTES.md and ../reebal_cv.tex.
-- Full profile is the default; Explore preserves the immersive presentation.
+- A minimal single-page design with day and night themes (follows the system setting, then the visitor's toggle). There is no scroll-driven experience.
 - Keep all confirmed career updates synchronized with the master records. Never copy job-specific targeting into the portfolio.
 - npm run cv copies the master LaTeX source into public; there is no browser-based PDF generation. Archived old PDF/HTML exports are outside public and must not be deployed.
 - npm run build builds the site. npm run preview serves the local build.

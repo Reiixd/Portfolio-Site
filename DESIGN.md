@@ -2,38 +2,40 @@
 
 ## Direction
 
-An intense, premium-minimal cyber-nocturne. The site behaves as one continuous digital workspace that expands into a city of connected systems. Graphic-novel illustration grounds the human story while code-native route lines preserve precision and interactivity.
+Slate and ember: a typographic single page with a dark field at each end (hero and contact) and calm slate sections between. One warm signal color, ember, does all the highlighting. No scroll choreography.
 
 ## Color
 
-- Canvas: `oklch(0.10 0 0)`
-- Surface: `oklch(0.16 0.012 210)`
-- Ink: `oklch(0.94 0.01 210)`
-- Muted ink: `oklch(0.72 0.03 210)`
-- Primary blue steel: `oklch(0.58 0.09 210)`
-- Signal yellow: `oklch(0.89 0.19 108)`
-- Signal ink: `oklch(0.10 0 0)`
+OKLCH tokens, defined per theme on `:root[data-theme]`.
 
-The strategy is committed. Blue steel carries the architecture, signal yellow is reserved for the active waypoint, focus, and primary contact action.
+| Role | Day | Night |
+|---|---|---|
+| Background | `oklch(0.975 0.004 255)` | `oklch(0.17 0.016 258)` |
+| Surface | `oklch(0.945 0.007 255)` | `oklch(0.21 0.018 258)` |
+| Ink | `oklch(0.2 0.025 258)` | `oklch(0.95 0.006 255)` |
+| Soft ink | `oklch(0.43 0.022 258)` | `oklch(0.74 0.02 255)` |
+| Line | `oklch(0.88 0.009 258)` | `oklch(0.31 0.02 258)` |
+| Ember accent | `oklch(0.5 0.16 45)` | `oklch(0.79 0.145 58)` |
+
+Hero and contact are full-bleed dark fields: `oklch(0.2 0.03 258)` in day and `oklch(0.115 0.02 258)` in night, with light ink `oklch(0.965 0.006 255)`. Ember (`oklch(0.79 0.145 58)`, the same in both themes) colors the hero statement, the primary button, the status dot, and the contact email underline. Skills sits on the surface tone. In the light sections ember appears only on the wordmark dot, list dashes, project and company lines, link underlines and hover, selection, and focus rings. The theme follows `prefers-color-scheme` until the visitor toggles, then persists in `localStorage` (`portfolio-theme`).
 
 ## Typography
 
-- Display: Saira Condensed, 600 and 700.
-- Text: Spline Sans, 400, 500, and 600.
-- Display tracking never exceeds `-0.035em`.
-- Body measure stays between 45 and 68 characters.
+- Geist Variable for all text and display. Display weights sit at 560-580 with tracking down to -0.04em.
+- Geist Mono Variable only for data: date ranges and technology stacks.
+- Display tops out at 6rem. Body measure is 56-62ch.
 
 ## Layout
 
-One fixed world stage and one document-flow spacer. Copy appears at waypoints over an asymmetric twelve-column composition. A fixed route map is right-aligned on desktop and becomes a bottom navigation rail on narrow or coarse-pointer layouts.
+One column inside a 72rem wrap. Sections are a 21rem headline column (large display headings from the content data) plus a 48rem body, separated by hairlines, with one tonal band for Skills, and collapse to a single column under 52rem. No cards. Projects, experience, and skills are rows.
 
 ## Motion
 
-Scroll is the timeline. A canvas city advances continuously, the illustrated engineer recedes as systems expand, and discovered nodes remain in the experience constellation. Motion uses transforms, opacity, and canvas drawing. Reduced motion removes spatial travel while preserving every content waypoint.
+Hero name lines rise from a mask on load. Theme changes spread outward from the toggle as a circular reveal (View Transitions, instant fallback). Everything respects `prefers-reduced-motion`. There is no scroll-driven behavior.
 
 ## Components
 
-- `WorldCanvas`: code-native city, route, and constellation renderer.
-- `RouteMap`: accessible waypoint navigation and progress state.
-- `WorldCopy`: semantic, windowed content anchored over the fixed stage.
-- `ContactAction`: persistent “Contact me” naming and a mail action at the resolved ending.
+- `Section`: label column plus body, hairline above.
+- `text-link`: ink link with an ember underline that draws in, plus an arrow nudge for external links.
+- `theme-toggle`: 44px round button, sun or moon icon.
+- `quiet-list`: ember dash bullets, soft ink.
